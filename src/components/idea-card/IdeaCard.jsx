@@ -1,5 +1,4 @@
-'use client';
-import { Button, Chip } from '@heroui/react';
+import { Chip } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -28,15 +27,9 @@ const IdeaCard = ({ idea }) => {
                 </div>
                 <div className="pt-6 mt-auto border-t border-slate-100 flex justify-between items-center">
                     <span className="text-2xl font-black text-blue-600">{idea.EstimatedBudget}</span>
-                    <Button
-                        as={Link}
-                        href={`/ideas/${idea._id}`}
-                        variant="solid"
-                        color="primary"
-                        className="font-bold rounded-xl px-6 py-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30"
-                    >
+                    <Link href={`/ideas/${idea._id}`} className="font-bold rounded-xl px-6 py-2 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30">
                         Learn More
-                    </Button>
+                    </Link>
                 </div>
             </div>
         </div>
