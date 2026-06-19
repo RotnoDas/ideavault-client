@@ -60,24 +60,24 @@ const IdeaDetailsPage = async({params}) => {
                         </div>
                         <div className="space-y-2">
                             <div className="w-full h-px bg-slate-100"></div>
-                            <p className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
+                            <div className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
                                 <ColorSwatch color="#0485F7" size="xs" />
                                 Target Audience:
-                            </p>
+                            </div>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-sm font-normal text-black">{data.TargetAudience}</span>
                             </div>
-                            <p className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
+                            <div className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
                                 <ColorSwatch color="#0485F7" size="xs" />
                                 Problem Statement:
-                            </p>
+                            </div>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-sm font-normal text-black">{data.ProblemStatement}</span>
                             </div>
-                            <p className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
+                            <div className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
                                 <ColorSwatch color="#0485F7" size="xs" />
                                 Proposed Solution:
-                            </p>
+                            </div>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-sm font-normal text-black">{data.ProposedSolution}</span>
                             </div>
