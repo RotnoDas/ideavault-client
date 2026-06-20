@@ -4,18 +4,19 @@ import { Button, Input } from '@heroui/react';
 import { ArrowRight, Lock, Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
 
 const LoginPage = () => {
+    const router = useRouter();
     const handleLogin = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
         const loginData = Object.fromEntries(formData.entries());
         const { data, error } = await authClient.signIn.email({
             email: loginData.email,
-            password: loginData.password,
-            callbackURL: "/"
+            password: loginData.password
         })
         const { data: JWTToken, error: JWTError } = await authClient.token()
         console.log("JWT Token", JWTToken)
@@ -24,6 +25,7 @@ const LoginPage = () => {
             return;
         } else {
             toast.success("Login successful.");
+            router.push("/");
         }
     }
 

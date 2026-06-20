@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const NavBar = () => {
     const router = useRouter();
@@ -18,9 +19,9 @@ const NavBar = () => {
     }, []);
     const handleLogout = async() => {
         await signOut();
+        toast.success("Logged out successfully");
         router.refresh();
         router.push("/login");
-        window.location.href = "/login";
         setIsMenuOpen(false);
     }
     const { data: session, isPending } = authClient.useSession();
