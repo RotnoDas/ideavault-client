@@ -4,6 +4,7 @@ import { Chip, ColorSwatch } from '@heroui/react';
 import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
+import CommentSection from '@/components/comment-section/CommentSection';
 
 const fetchSingleIdea = async(id, token) => {
     const response = await fetch(`${process.env.PUBLIC_ALL_API}/ideas/${id}`, {
@@ -15,9 +16,10 @@ const fetchSingleIdea = async(id, token) => {
     return idea;
 }
 const IdeaDetailsPage = async({params}) => {
-    const {token} = await auth.api.getToken({
+    const tokenData = await auth.api.getToken({
         headers: await headers()
     });
+    const token = tokenData?.token || "";
     const {id} = await params;
     const data = await fetchSingleIdea(id, token);
     return (
@@ -58,6 +60,13 @@ const IdeaDetailsPage = async({params}) => {
                             })
                         }
                     </div>
+                    
+                    <CommentSection 
+                        ideaId={id} 
+                        initialComments={data.comments || []} 
+                        apiBaseUrl={process.env.PUBLIC_ALL_API} 
+                        token={token}
+                    />
                 </div>
                 <div className="lg:col-span-1">
                     <div className="sticky top-24 bg-white/70 backdrop-blur-md p-8 rounded-[2rem] border border-white/20 shadow-2xl space-y-8">
