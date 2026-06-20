@@ -1,10 +1,11 @@
+import Banner from "@/components/banner/Banner";
 import FeaturedIdeas from "@/components/featured-ideas/FeaturedIdeas";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      Home Page
+      <Banner></Banner>
       <FeaturedIdeas></FeaturedIdeas>
     </div>
   );
