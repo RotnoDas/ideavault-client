@@ -2,6 +2,7 @@ import Tags from '@/components/tags/Tags';
 import { auth } from '@/lib/auth';
 import { Chip, ColorSwatch } from '@heroui/react';
 import { headers } from 'next/headers';
+import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import React from 'react';
 import CommentSection from '@/components/comment-section/CommentSection';
@@ -12,6 +13,9 @@ const fetchSingleIdea = async(id, token) => {
             authorization: `Bearer ${token}` || ""
         }
     });
+    if (!response.ok) {
+        return null;
+    }
     const idea = await response.json();
     return idea;
 }
@@ -22,6 +26,11 @@ const IdeaDetailsPage = async({params}) => {
     const token = tokenData?.token || "";
     const {id} = await params;
     const data = await fetchSingleIdea(id, token);
+    
+    if (!data) {
+        notFound();
+    }
+
     return (
         <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
@@ -53,9 +62,14 @@ const IdeaDetailsPage = async({params}) => {
                     </div>
                     <div className="flex flex-wrap gap-4 pt-8 border-t border-border">
                         {
-                            data.Tags.map((tag, index) => {
+                            (Array.isArray(data.Tags) 
+                                ? data.Tags 
+                                : typeof data.Tags === 'string' && data.Tags.trim() !== ''
+                                    ? data.Tags.split(',') 
+                                    : []
+                            ).map((tag, index) => {
                                 return(
-                                    <Tags key={index} tag={tag}></Tags>
+                                    <Tags key={index} tag={typeof tag === 'string' ? tag.trim() : tag}></Tags>
                                 )
                             })
                         }

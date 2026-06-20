@@ -3,6 +3,7 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 import { redirect } from 'next/navigation';
+import { Avatar } from '@heroui/react';
 
 const fetchInteractions = async(token) => {
     const response = await fetch(`${process.env.PUBLIC_ALL_API}/my-interactions`, {
@@ -55,15 +56,21 @@ const MyInteractionPage = async() => {
                         interactions.map((interaction, index) => (
                             <div key={index} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-200">
                                 <Link href={`/ideas/${interaction.ideaId}`} className="block group">
-                                    <h3 className="text-lg font-black text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                                        {interaction.IdeaTitle}
+                                    <h3 className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest group-hover:text-blue-600 transition-colors">
+                                        On Idea: {interaction.IdeaTitle}
                                     </h3>
-                                    <p className="text-slate-600 mb-4 leading-relaxed">
-                                        {interaction.comment}
-                                    </p>
-                                    <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">
-                                        {new Date(interaction.date).toLocaleDateString()}
-                                    </p>
+                                    <div className="flex gap-4">
+                                        <Avatar name={interaction.user || 'U'} className="shrink-0 bg-blue-100 text-blue-600 font-bold" />
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">{interaction.user || 'Unknown User'}</h4>
+                                            <p className="text-slate-600 mt-1 mb-3 leading-relaxed">
+                                                {interaction.comment}
+                                            </p>
+                                            <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">
+                                                {new Date(interaction.date).toLocaleString()}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </Link>
                             </div>
                         ))

@@ -1,8 +1,8 @@
 'use client';
 import { authClient } from '@/lib/auth-client';
 import { Button } from '@heroui/react';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { useRouter, useParams } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 const CATEGORIES = [
@@ -16,25 +16,54 @@ const CATEGORIES = [
     'Other'
 ];
 
-const AddIdeaPage = () => {
+const EditIdeaPage = () => {
     const router = useRouter();
+    const params = useParams();
+    const ideaId = params.id;
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [idea, setIdea] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchIdea = async () => {
+            try {
+                const { data: tokenObj } = await authClient.token();
+                const response = await fetch(`http://localhost:8000/ideas/${ideaId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${tokenObj?.token || ''}`
+                    }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setIdea(data);
+                } else {
+                    toast.error("Failed to load idea data");
+                }
+            } catch (error) {
+                toast.error("An error occurred loading the idea");
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        if (ideaId) {
+            fetchIdea();
+        }
+    }, [ideaId]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsSubmitting(true);
 
         const formData = new FormData(event.currentTarget);
-        const newIdea = Object.fromEntries(formData.entries());
+        const updatedIdea = Object.fromEntries(formData.entries());
 
-        if (typeof newIdea.Tags === 'string') {
-            newIdea.Tags = newIdea.Tags.split(',').map(tag => tag.trim()).filter(Boolean);
-        } else if (!newIdea.Tags) {
-            newIdea.Tags = [];
+        if (typeof updatedIdea.Tags === 'string') {
+            updatedIdea.Tags = updatedIdea.Tags.split(',').map(tag => tag.trim()).filter(Boolean);
+        } else if (!updatedIdea.Tags) {
+            updatedIdea.Tags = [];
         }
 
-        // Validate basic fields
-        if (!newIdea.IdeaTitle || !newIdea.Category || !newIdea.ShortDescription || !newIdea.DetailedDescription) {
+        if (!updatedIdea.IdeaTitle || !updatedIdea.Category || !updatedIdea.ShortDescription || !updatedIdea.DetailedDescription) {
             toast.error("Please fill in all required fields.");
             setIsSubmitting(false);
             return;
@@ -43,28 +72,28 @@ const AddIdeaPage = () => {
         try {
             const { data: session } = await authClient.getSession();
             if (!session) {
-                toast.error("You must be logged in to submit an idea.");
+                toast.error("You must be logged in to edit an idea.");
                 router.push("/login");
                 return;
             }
 
             const { data: tokenObj } = await authClient.token();
             
-            const response = await fetch("http://localhost:8000/ideas", {
-                method: "POST",
+            const response = await fetch(`http://localhost:8000/ideas/${ideaId}`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${tokenObj?.token || ''}`
                 },
-                body: JSON.stringify(newIdea)
+                body: JSON.stringify(updatedIdea)
             });
 
             if (response.ok) {
-                toast.success("Idea submitted successfully!");
-                router.push("/ideas");
+                toast.success("Idea updated successfully!");
+                router.push("/my-idea");
             } else {
                 const errData = await response.json();
-                toast.error(errData.message || "Failed to submit idea.");
+                toast.error(errData.message || "Failed to update idea.");
             }
         } catch (error) {
             console.error("Submission error:", error);
@@ -76,12 +105,20 @@ const AddIdeaPage = () => {
 
     const inputClasses = "border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 focus:outline-none transition-all duration-300 bg-white w-full rounded-2xl px-4 py-3";
 
+    if (isLoading) {
+        return <div className="min-h-screen bg-slate-50 flex items-center justify-center font-bold text-slate-500">Loading Idea...</div>;
+    }
+
+    if (!idea) {
+        return <div className="min-h-screen bg-slate-50 flex items-center justify-center font-bold text-slate-500">Idea not found.</div>;
+    }
+
     return (
         <div className="min-h-screen bg-slate-50 py-12">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-10">
-                    <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Submit Your Idea</h1>
-                    <p className="text-slate-500 font-medium">Share your startup concept with the world and get valuable feedback.</p>
+                    <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Edit Idea</h1>
+                    <p className="text-slate-500 font-medium">Update the details of your startup concept.</p>
                 </div>
 
                 <div className="bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-xl">
@@ -95,6 +132,7 @@ const AddIdeaPage = () => {
                                     id="IdeaTitle"
                                     name="IdeaTitle"
                                     required
+                                    defaultValue={idea.IdeaTitle}
                                     placeholder="E.g., Next-gen AI Assistant"
                                     className={inputClasses}
                                 />
@@ -108,7 +146,7 @@ const AddIdeaPage = () => {
                                     id="Category"
                                     name="Category"
                                     required
-                                    defaultValue=""
+                                    defaultValue={idea.Category || ""}
                                     className={inputClasses}
                                 >
                                     <option value="" disabled>Select a category</option>
@@ -127,6 +165,7 @@ const AddIdeaPage = () => {
                                 id="ShortDescription"
                                 name="ShortDescription"
                                 required
+                                defaultValue={idea.ShortDescription}
                                 placeholder="A one-sentence summary of your idea"
                                 className={inputClasses}
                             />
@@ -141,6 +180,7 @@ const AddIdeaPage = () => {
                                 name="DetailedDescription"
                                 required
                                 rows={5}
+                                defaultValue={idea.DetailedDescription}
                                 placeholder="Explain how your idea works in detail..."
                                 className={`${inputClasses} resize-none`}
                             />
@@ -154,6 +194,7 @@ const AddIdeaPage = () => {
                                 <input
                                     id="Tags"
                                     name="Tags"
+                                    defaultValue={Array.isArray(idea.Tags) ? idea.Tags.join(", ") : idea.Tags}
                                     placeholder="Innovation, tech, startup (comma-separated)"
                                     className={inputClasses}
                                 />
@@ -167,6 +208,7 @@ const AddIdeaPage = () => {
                                     id="ImageURL"
                                     name="ImageURL"
                                     type="url"
+                                    defaultValue={idea.ImageURL}
                                     placeholder="https://example.com/image.jpg"
                                     className={inputClasses}
                                 />
@@ -179,6 +221,7 @@ const AddIdeaPage = () => {
                                 <input
                                     id="EstimatedBudget"
                                     name="EstimatedBudget"
+                                    defaultValue={idea.EstimatedBudget}
                                     placeholder="E.g., $10k - $50k"
                                     className={inputClasses}
                                 />
@@ -191,6 +234,7 @@ const AddIdeaPage = () => {
                                 <input
                                     id="TargetAudience"
                                     name="TargetAudience"
+                                    defaultValue={idea.TargetAudience}
                                     placeholder="Who is this for?"
                                     className={inputClasses}
                                 />
@@ -206,6 +250,7 @@ const AddIdeaPage = () => {
                                     id="ProblemStatement"
                                     name="ProblemStatement"
                                     rows={4}
+                                    defaultValue={idea.ProblemStatement}
                                     placeholder="What problem are you solving?"
                                     className={`${inputClasses} resize-none`}
                                 />
@@ -219,6 +264,7 @@ const AddIdeaPage = () => {
                                     id="ProposedSolution"
                                     name="ProposedSolution"
                                     rows={4}
+                                    defaultValue={idea.ProposedSolution}
                                     placeholder="How does your idea solve this problem?"
                                     className={`${inputClasses} resize-none`}
                                 />
@@ -232,7 +278,7 @@ const AddIdeaPage = () => {
                                 isLoading={isSubmitting}
                                 className="h-14 px-10 text-lg font-black rounded-2xl shadow-xl shadow-blue-600/20 group"
                             >
-                                Submit Idea to Vault
+                                Save Changes
                             </Button>
                         </div>
                     </form>
@@ -242,4 +288,4 @@ const AddIdeaPage = () => {
     );
 };
 
-export default AddIdeaPage;
+export default EditIdeaPage;
