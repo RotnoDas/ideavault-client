@@ -75,11 +75,14 @@ const NavBar = () => {
                                             <p className="font-bold text-sm">Welcome back!</p>
                                             <p className="text-xs truncate text-slate-500">{session?.user?.email}</p>
                                         </div>
-                                        <Link href="/dashboard" className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors">
-                                            <LayoutDashboard className="w-4 h-4" /> Dashboard
+                                        <Link href="/my-profile" className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors">
+                                            <LayoutDashboard className="w-4 h-4" /> My Profile
                                         </Link>
-                                        <Link href="/settings" className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors">
-                                            <User className="w-4 h-4" /> Settings
+                                        <Link href="/my-idea" className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors">
+                                            <User className="w-4 h-4" /> My Idea
+                                        </Link>
+                                        <Link href="/my-interaction" className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors">
+                                            <User className="w-4 h-4" /> My Interaction
                                         </Link>
                                         <button
                                             onClick={handleLogout}
@@ -124,12 +127,8 @@ const NavBar = () => {
                                 
                                 <p className="px-4 pt-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">Account</p>
                                 
-                                <Link href="/dashboard" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl flex items-center gap-3">
-                                    <LayoutDashboard className="w-5 h-5 text-slate-500" /> Dashboard
-                                </Link>
-                                
-                                <Link href="/settings" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl flex items-center gap-3">
-                                    <User className="w-5 h-5 text-slate-500" /> Settings
+                                <Link href="/my-profile" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl flex items-center gap-3">
+                                    <LayoutDashboard className="w-5 h-5 text-slate-500" /> My Profile
                                 </Link>
                                 
                                 <button
