@@ -43,6 +43,8 @@ const NavBar = () => {
                         <Link href="/" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Home</Link>
                         <Link href="/ideas" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Ideas</Link>
                         <Link href="/add-idea" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Add Idea</Link>
+                        <Link href="/my-idea" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">My Idea</Link>
+                        <Link href="/my-interaction" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">My Interaction</Link>
                     </div>
                     <div className="hidden md:flex items-center gap-4">
                         {
@@ -100,6 +102,8 @@ const NavBar = () => {
                     <Link onClick={() => setIsMenuOpen(false)} href="/" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">Home</Link>
                     <Link onClick={() => setIsMenuOpen(false)} href="/ideas" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">Ideas</Link>
                     <Link onClick={() => setIsMenuOpen(false)} href="/add-idea" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">Add Idea</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} href="/my-idea" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">My Idea</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} href="/my-interaction" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">My Interaction</Link>
                     
                     <div className="pt-4 border-t border-border mt-4">
                         {!isPending && !session ? (

@@ -27,7 +27,6 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
             });
 
             if (response.ok) {
-                // Add the comment optimistically
                 setComments([...comments, { comment: newComment, user: session.user.username || session.user.name || "Anonymous" }]);
                 setNewComment('');
                 router.refresh();
@@ -44,7 +43,6 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
     return (
         <div className="mt-12 pt-8 border-t border-slate-100">
             <h3 className="text-2xl font-black text-slate-900 mb-8">Comments</h3>
-            
             <div className="space-y-6 mb-10">
                 {comments && comments.length > 0 ? (
                     comments.map((c, index) => (
@@ -62,10 +60,9 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
                     </div>
                 )}
             </div>
-
             {session ? (
                 <form onSubmit={handleSubmit} className="bg-white p-6 md:p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-blue-500 to-indigo-500"></div>
                     <div className="flex items-center gap-3 mb-6">
                         <Avatar name={session.user.name || 'U'} size="sm" />
                         <h4 className="font-bold text-slate-900">Leave a comment as {session.user.name}</h4>
