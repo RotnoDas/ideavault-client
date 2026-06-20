@@ -1,16 +1,25 @@
 import Tags from '@/components/tags/Tags';
+import { auth } from '@/lib/auth';
 import { Chip, ColorSwatch } from '@heroui/react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 
-const fetchSingleIdea = async(id) => {
-    const response = await fetch(`${process.env.PUBLIC_ALL_API}/ideas/${id}`);
+const fetchSingleIdea = async(id, token) => {
+    const response = await fetch(`${process.env.PUBLIC_ALL_API}/ideas/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}` || ""
+        }
+    });
     const idea = await response.json();
     return idea;
 }
 const IdeaDetailsPage = async({params}) => {
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    });
     const {id} = await params;
-    const data = await fetchSingleIdea(id);
+    const data = await fetchSingleIdea(id, token);
     return (
         <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">

@@ -17,6 +17,8 @@ const LoginPage = () => {
             password: loginData.password,
             callbackURL: "/"
         })
+        const { data: JWTToken, error: JWTError } = await authClient.token()
+        console.log("JWT Token", JWTToken)
         if (error) {
             toast.error(error.message || "Login failed. Please try again.");
             return;
