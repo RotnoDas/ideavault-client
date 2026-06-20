@@ -48,14 +48,21 @@ const NavBar = () => {
                     </div>
                     <div className="hidden md:flex items-center gap-4">
                         {
-                            !isPending && !session ? <>
-                                <Link href="/login" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Login</Link>
-                                <Link href="/register">
-                                    <Button color="primary" className="font-bold rounded-full px-8 shadow-lg shadow-blue-600/20">
-                                        Join Free
-                                    </Button>
-                                </Link>
-                            </> :
+                            isPending ? (
+                                <div className="flex gap-4 items-center">
+                                    <div className="w-12 h-4 bg-slate-200 animate-pulse rounded"></div>
+                                    <div className="w-24 h-10 bg-slate-200 animate-pulse rounded-full"></div>
+                                </div>
+                            ) : !session ? (
+                                <>
+                                    <Link href="/login" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Login</Link>
+                                    <Link href="/register">
+                                        <Button color="primary" className="font-bold rounded-full px-8 shadow-lg shadow-blue-600/20">
+                                            Join Free
+                                        </Button>
+                                    </Link>
+                                </>
+                            ) : (
                                 <div className="relative group">
                                     <button className="flex items-center gap-3 p-1 rounded-full hover:bg-muted transition-colors border border-transparent hover:border-border">
                                         <Image
@@ -91,6 +98,7 @@ const NavBar = () => {
                                         </button>
                                     </div>
                                 </div>
+                            )
                         }
                     </div>
                     <div className="md:hidden flex items-center">
@@ -109,7 +117,11 @@ const NavBar = () => {
                     <Link onClick={() => setIsMenuOpen(false)} href="/my-interaction" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">My Interaction</Link>
                     
                     <div className="pt-4 border-t border-border mt-4">
-                        {!isPending && !session ? (
+                        {isPending ? (
+                            <div className="flex flex-col gap-2">
+                                <div className="w-full h-12 bg-slate-100 animate-pulse rounded-xl"></div>
+                            </div>
+                        ) : !session ? (
                             <div className="grid grid-cols-2 gap-4">
                                 <Link href="/login" onClick={() => setIsMenuOpen(false)}>
                                     <Button variant="bordered" className="w-full rounded-xl font-bold">Login</Button>
