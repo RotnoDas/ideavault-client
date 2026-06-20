@@ -28,6 +28,12 @@ const RegisterPage = () => {
             router.push("/");
         }
     }
+
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    }
     return (
         <div className="min-h-[80vh] flex flex-col bg-slate-50 py-12">
             <div className="grow flex items-center justify-center p-4">
@@ -112,7 +118,8 @@ const RegisterPage = () => {
                             </Button>
                         </form>
                         <div className="space-y-4">
-                            <Button
+                            <Button 
+                                onClick={handleGoogleLogin}
                                 variant="bordered"
                                 className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3"
                             >

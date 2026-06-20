@@ -33,7 +33,7 @@ const IdeasPage = async ({ searchParams }) => {
                         </div>
                         <h3 className="text-xl font-bold text-slate-900 mb-2">No ideas found</h3>
                         <p className="text-slate-500">
-                            We couldn't find any ideas matching "{searchTerm}". Try adjusting your search or browsing all ideas.
+                            We could not find any ideas matching your search. Try adjusting your search or browsing all ideas.
                         </p>
                     </div>
                 )}
