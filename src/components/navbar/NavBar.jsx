@@ -67,7 +67,7 @@ const NavBar = () => {
                                 </>
                             ) : (
                                 <div className="relative group">
-                                    <button className="flex items-center gap-3 p-1 rounded-full hover:bg-muted transition-colors border border-transparent hover:border-border">
+                                    <button className="flex items-center gap-3 p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
                                         <Image
                                             width={40}
                                             height={40}
@@ -77,26 +77,26 @@ const NavBar = () => {
                                             className="w-10 h-10 rounded-full object-cover ring-2 ring-blue-600/10"
                                         />
                                         <div className="text-left hidden lg:block">
-                                            <p className="text-sm font-bold truncate max-w-25">{session?.user?.name}</p>
+                                            <p className="text-sm font-bold truncate max-w-25 text-slate-900 dark:text-slate-100">{session?.user?.name}</p>
                                         </div>
                                     </button>
-                                    <div className="absolute right-0 top-12 w-56 bg-white border border-slate-200 rounded-2xl shadow-2xl hidden group-hover:flex flex-col py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                                        <div className="px-4 py-3 border-b border-slate-100">
-                                            <p className="font-bold text-sm">Welcome back!</p>
-                                            <p className="text-xs truncate text-slate-500">{session?.user?.email}</p>
+                                    <div className="absolute right-0 top-12 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl dark:shadow-blue-900/10 hidden group-hover:flex flex-col py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                                        <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                                            <p className="font-bold text-sm text-slate-900 dark:text-white">Welcome back!</p>
+                                            <p className="text-xs truncate text-slate-500 dark:text-slate-400">{session?.user?.email}</p>
                                         </div>
-                                        <Link href="/my-profile" className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors">
+                                        <Link href="/my-profile" className="px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors">
                                             <LayoutDashboard className="w-4 h-4" /> My Profile
                                         </Link>
-                                        <Link href="/my-idea" className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors">
+                                        <Link href="/my-idea" className="px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors">
                                             <User className="w-4 h-4" /> My Idea
                                         </Link>
-                                        <Link href="/my-interaction" className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors">
+                                        <Link href="/my-interaction" className="px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors">
                                             <User className="w-4 h-4" /> My Interaction
                                         </Link>
                                         <button
                                             onClick={handleLogout}
-                                            className="px-4 py-2 text-sm text-red-500 hover:bg-red-50 flex items-center gap-3 transition-colors text-left">
+                                            className="px-4 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center gap-3 transition-colors text-left">
                                             <LogOut className="w-4 h-4" /> Log Out
                                         </button>
                                     </div>

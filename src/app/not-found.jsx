@@ -4,7 +4,7 @@ import { Button } from '@heroui/react';
 
 export default function NotFound() {
     return (
-        <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center bg-slate-50/50">
+        <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center bg-slate-50/50 dark:bg-transparent">
             <div className="space-y-8 max-w-2xl mx-auto">
                 {/* Visual Element */}
                 <div className="relative">
@@ -15,10 +15,10 @@ export default function NotFound() {
                 </div>
 
                 <div className="space-y-4">
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900">
+                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
                         Oops! Page not found
                     </h1>
-                    <p className="text-lg text-slate-500 max-w-lg mx-auto">
+                    <p className="text-lg text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
                         The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Or perhaps, the idea was just too innovative for this URL!
                     </p>
                 </div>
@@ -30,7 +30,7 @@ export default function NotFound() {
                         </Button>
                     </Link>
                     <Link href="/my-idea">
-                        <Button variant="flat" size="lg" className="font-bold bg-white shadow-sm border border-slate-200 px-8">
+                        <Button variant="flat" size="lg" className="font-bold bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 px-8 dark:text-white hover:dark:bg-slate-700">
                             My Ideas
                         </Button>
                     </Link>
