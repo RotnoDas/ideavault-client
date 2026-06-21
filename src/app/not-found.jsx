@@ -8,7 +8,7 @@ export default function NotFound() {
             <div className="space-y-8 max-w-2xl mx-auto">
                 {/* Visual Element */}
                 <div className="relative">
-                    <div className="text-[150px] sm:text-[200px] font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-blue-300 leading-none select-none drop-shadow-sm">
+                    <div className="text-[150px] sm:text-[200px] font-black text-transparent bg-clip-text bg-linear-to-br from-blue-600 to-blue-300 leading-none select-none drop-shadow-sm">
                         404
                     </div>
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center -z-10 opacity-30 blur-3xl rounded-full bg-blue-400"></div>
