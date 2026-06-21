@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import MyIdeaCard from '@/components/my-idea/MyIdeaCard';
 
 const fetchMyIdeas = async(token) => {
-    const response = await fetch('http://localhost:8000/my-ideas', {
+    const response = await fetch(`${process.env.PUBLIC_ALL_API}/my-ideas`, {
         headers: {
             authorization: `Bearer ${token}` || ""
         },
