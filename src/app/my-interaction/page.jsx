@@ -30,7 +30,7 @@ const MyInteractionPage = async() => {
     const token = tokenData?.token || "";
     
     if (!token) {
-        redirect('/login');
+        redirect('/login?redirect=/my-interaction');
     }
 
     const interactions = await fetchInteractions(token);

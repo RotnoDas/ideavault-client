@@ -2,7 +2,7 @@ import Tags from '@/components/tags/Tags';
 import { auth } from '@/lib/auth';
 import { Chip, ColorSwatch } from '@heroui/react';
 import { headers } from 'next/headers';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import Image from 'next/image';
 import React from 'react';
 import CommentSection from '@/components/comment-section/CommentSection';
@@ -45,6 +45,11 @@ const IdeaDetailsPage = async({params}) => {
     });
     const token = tokenData?.token || "";
     const {id} = await params;
+
+    if (!token) {
+        redirect(`/login?redirect=/ideas/${id}`);
+    }
+
     const data = await fetchSingleIdea(id, token);
     
     if (!data) {

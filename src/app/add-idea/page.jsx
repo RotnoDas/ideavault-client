@@ -44,7 +44,7 @@ const AddIdeaPage = () => {
             const { data: session } = await authClient.getSession();
             if (!session) {
                 toast.error("You must be logged in to submit an idea.");
-                router.push("/login");
+                router.push("/login?redirect=/add-idea");
                 return;
             }
 

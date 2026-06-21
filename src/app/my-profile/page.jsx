@@ -24,7 +24,7 @@ const MyProfilePage = () => {
 
     useEffect(() => {
         if (!isPending && !session?.user) {
-            router.push('/login');
+            router.push('/login?redirect=/my-profile');
         }
     }, [isPending, session, router]);
 

@@ -4,12 +4,15 @@ import { Button, Input } from '@heroui/react';
 import { ArrowRight, Lock, Mail, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import React, { Suspense } from 'react';
 import toast from 'react-hot-toast';
 
-const RegisterPage = () => {
+const RegisterForm = () => {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const redirectUrl = searchParams.get('redirect') || '/';
+
     const handleRegister = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
@@ -18,20 +21,22 @@ const RegisterPage = () => {
             email: registerData.email,
             password: registerData.password,
             name: registerData.name,
-            image: registerData.image
+            image: registerData.image,
+            callbackURL: redirectUrl
         });
         if (error) {
             toast.error(error.message || "Registration failed. Please try again.");
             return;
         } else {
             toast.success("Registration successful.");
-            router.push("/");
+            router.push(redirectUrl);
         }
     }
 
     const handleGoogleLogin = async () => {
         const data = await authClient.signIn.social({
             provider: "google",
+            callbackURL: redirectUrl
         });
     }
     return (
@@ -148,6 +153,14 @@ const RegisterPage = () => {
                 </div>
             </div>
         </div>
+    );
+};
+
+const RegisterPage = () => {
+    return (
+        <Suspense fallback={<div className="min-h-[80vh] flex items-center justify-center">Loading...</div>}>
+            <RegisterForm />
+        </Suspense>
     );
 };
 

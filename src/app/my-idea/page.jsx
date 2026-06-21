@@ -29,7 +29,7 @@ const MyIdeaPage = async() => {
     const token = tokenData?.token || "";
     
     if (!token) {
-        redirect('/login');
+        redirect('/login?redirect=/my-idea');
     }
 
     const ideas = await fetchMyIdeas(token);

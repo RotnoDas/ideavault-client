@@ -74,7 +74,7 @@ const EditIdeaPage = () => {
             const { data: session } = await authClient.getSession();
             if (!session) {
                 toast.error("You must be logged in to edit an idea.");
-                router.push("/login");
+                router.push(`/login?redirect=/edit-idea/${ideaId}`);
                 return;
             }
 

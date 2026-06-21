@@ -4,19 +4,23 @@ import { Button, Input } from '@heroui/react';
 import { ArrowRight, Lock, Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import React, { Suspense } from 'react';
 import toast from 'react-hot-toast';
 
-const LoginPage = () => {
+const LoginForm = () => {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const redirectUrl = searchParams.get('redirect') || '/';
+
     const handleLogin = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
         const loginData = Object.fromEntries(formData.entries());
         const { data, error } = await authClient.signIn.email({
             email: loginData.email,
-            password: loginData.password
+            password: loginData.password,
+            callbackURL: redirectUrl
         })
         const { data: JWTToken, error: JWTError } = await authClient.token()
         console.log("JWT Token", JWTToken)
@@ -25,13 +29,14 @@ const LoginPage = () => {
             return;
         } else {
             toast.success("Login successful.");
-            router.push("/");
+            router.push(redirectUrl);
         }
     }
 
     const handleGoogleLogin = async () => {
         const data = await authClient.signIn.social({
             provider: "google",
+            callbackURL: redirectUrl
         });
     }
     return (
@@ -136,6 +141,14 @@ const LoginPage = () => {
                 </div>
             </div>
         </div>
+    );
+};
+
+const LoginPage = () => {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+            <LoginForm />
+        </Suspense>
     );
 };
 
