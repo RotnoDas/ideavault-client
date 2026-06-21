@@ -35,22 +35,22 @@ const RegisterPage = () => {
         });
     }
     return (
-        <div className="min-h-[80vh] flex flex-col bg-slate-50 py-12">
+        <div className="min-h-[80vh] flex flex-col bg-slate-50 dark:bg-transparent py-12">
             <div className="grow flex items-center justify-center p-4">
                 <div className="w-full max-w-md">
-                    <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-2xl space-y-8 relative overflow-hidden">
+                    <div className="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl dark:shadow-blue-900/10 space-y-8 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
                         <div className="text-center space-y-2 relative">
-                            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-                                Join <span className="text-blue-600">IdeaVault</span>
+                            <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                                Join <span className="text-blue-600 dark:text-blue-400">IdeaVault</span>
                             </h2>
-                            <p className="text-slate-500 font-medium">Create your account to sharing your ideas</p>
+                            <p className="text-slate-500 dark:text-slate-400 font-medium">Create your account to sharing your ideas</p>
                         </div>
                         <form className="space-y-6" onSubmit={handleRegister}>
                             <div className="space-y-2">
                                 <label
                                     htmlFor="name"
-                                    className="text-sm font-bold text-slate-700 ml-1"
+                                    className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1"
                                 >
                                     Full Name
                                 </label>
@@ -59,13 +59,13 @@ const RegisterPage = () => {
                                     required
                                     placeholder="Enter your name"
                                     name="name"
-                                    className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
+                                    className="border-2 border-slate-200 dark:border-slate-700 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white dark:bg-slate-800 w-full rounded-2xl text-slate-900 dark:text-white"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label
                                     htmlFor="email"
-                                    className="text-sm font-bold text-slate-700 ml-1"
+                                    className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1"
                                 >
                                     Email Address
                                 </label>
@@ -75,13 +75,13 @@ const RegisterPage = () => {
                                     placeholder="Enter your email"
                                     type="email"
                                     name="email"
-                                    className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
+                                    className="border-2 border-slate-200 dark:border-slate-700 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white dark:bg-slate-800 w-full rounded-2xl text-slate-900 dark:text-white"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label
                                     htmlFor="image"
-                                    className="text-sm font-bold text-slate-700 ml-1"
+                                    className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1"
                                 >
                                     Profile Image URL
                                 </label>
@@ -90,13 +90,13 @@ const RegisterPage = () => {
                                     placeholder="https://images.unsplash.com/..."
                                     type="url"
                                     name="image"
-                                    className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
+                                    className="border-2 border-slate-200 dark:border-slate-700 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white dark:bg-slate-800 w-full rounded-2xl text-slate-900 dark:text-white"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label
                                     htmlFor="password"
-                                    className="text-sm font-bold text-slate-700 ml-1"
+                                    className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1"
                                 >
                                     Password
                                 </label>
@@ -106,7 +106,7 @@ const RegisterPage = () => {
                                     placeholder="••••••••"
                                     type="password"
                                     name="password"
-                                    className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
+                                    className="border-2 border-slate-200 dark:border-slate-700 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white dark:bg-slate-800 w-full rounded-2xl text-slate-900 dark:text-white"
                                 />
                             </div>
                             <Button
@@ -121,7 +121,7 @@ const RegisterPage = () => {
                             <Button 
                                 onClick={handleGoogleLogin}
                                 variant="bordered"
-                                className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3"
+                                className="w-full h-12 font-bold rounded-2xl border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors gap-3 dark:text-slate-200"
                             >
                                 <Image
                                     width={20}
@@ -134,11 +134,11 @@ const RegisterPage = () => {
                             </Button>
                         </div>
                         <div className="text-center pt-2">
-                            <p className="text-sm text-slate-500 font-medium">
+                            <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
                                 Already have an account?{' '}
                                 <Link
                                     href="/login"
-                                    className="text-blue-600 font-black hover:underline underline-offset-4 transition-all"
+                                    className="text-blue-600 dark:text-blue-400 font-black hover:underline underline-offset-4 transition-all"
                                 >
                                     Sign in
                                 </Link>

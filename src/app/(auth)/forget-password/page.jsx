@@ -14,7 +14,7 @@ const ForgetPassword = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 flex">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex">
             {/* Left side - Decorative */}
             <div className="hidden lg:flex w-1/2 bg-blue-600 relative overflow-hidden items-center justify-center">
                 <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-indigo-900"></div>
@@ -53,8 +53,8 @@ const ForgetPassword = () => {
                             </div>
                         </Link>
                         
-                        <h2 className="text-3xl font-extrabold text-slate-900 mb-3">Forgot Password</h2>
-                        <p className="text-slate-500 font-medium">
+                        <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-3">Forgot Password</h2>
+                        <p className="text-slate-500 dark:text-slate-400 font-medium">
                             Enter your email address and we'll send you a link to reset your password.
                         </p>
                     </div>
@@ -64,7 +64,7 @@ const ForgetPassword = () => {
                             <div className="space-y-2">
                                 <label
                                     htmlFor="email"
-                                    className="text-sm font-bold text-slate-700 ml-1"
+                                    className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1"
                                 >
                                     Email Address
                                 </label>
@@ -74,7 +74,7 @@ const ForgetPassword = () => {
                                     placeholder="Enter your email"
                                     type="email"
                                     name="email"
-                                    className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
+                                    className="border-2 border-slate-200 dark:border-slate-800 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white dark:bg-slate-900 w-full rounded-2xl text-slate-900 dark:text-white"
                                 />
                             </div>
 
@@ -101,7 +101,7 @@ const ForgetPassword = () => {
                     <div className="mt-8 text-center">
                         <Link
                             href="/login"
-                            className="inline-flex items-center justify-center text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors group"
+                            className="inline-flex items-center justify-center text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
                         >
                             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                             Back to login

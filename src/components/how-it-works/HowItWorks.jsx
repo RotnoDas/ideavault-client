@@ -21,13 +21,13 @@ const steps = [
 
 const HowItWorks = () => {
     return (
-        <section className="py-24 bg-slate-50">
+        <section className="py-24 bg-slate-50 dark:bg-slate-950">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
                         How It Works
                     </h2>
-                    <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+                    <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">
                         Your journey from an abstract concept to a validated startup idea.
                     </p>
                 </div>
@@ -36,12 +36,12 @@ const HowItWorks = () => {
                     {steps.map((step, index) => {
                         const Icon = step.icon;
                         return (
-                            <div key={index} className="flex flex-col items-center text-center p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                                <div className="w-16 h-16 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center mb-6 text-blue-600">
+                            <div key={index} className="flex flex-col items-center text-center p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md dark:hover:shadow-blue-900/10 transition-shadow">
+                                <div className="w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
                                     <Icon className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                                <p className="text-slate-500 leading-relaxed">{step.description}</p>
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{step.title}</h3>
+                                <p className="text-slate-500 dark:text-slate-400 leading-relaxed">{step.description}</p>
                             </div>
                         );
                     })}

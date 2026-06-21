@@ -30,8 +30,8 @@ const MyProfilePage = () => {
 
     if (isPending || !session?.user) {
         return (
-            <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <div className="min-h-screen bg-slate-50 dark:bg-transparent flex items-center justify-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 dark:border-blue-400"></div>
             </div>
         );
     }
@@ -68,22 +68,22 @@ const MyProfilePage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-slate-50 dark:bg-transparent py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-8">
-                    <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Welcome, {firstName}!</h1>
-                    <p className="text-slate-500 mt-2">Manage your profile information and account settings.</p>
+                    <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Welcome, {firstName}!</h1>
+                    <p className="text-slate-500 dark:text-slate-400 mt-2">Manage your profile information and account settings.</p>
                 </div>
 
-                <div className="bg-white shadow-sm border border-slate-200 rounded-2xl p-6 sm:p-10">
+                <div className="bg-white dark:bg-slate-900 shadow-sm border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-10">
                     <div className="flex items-center gap-3 mb-10">
-                        <UserIcon className="w-6 h-6 text-blue-600" />
-                        <h2 className="text-xl font-bold text-slate-900">Profile Details</h2>
+                        <UserIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Profile Details</h2>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-10 pb-10 border-b border-slate-100">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-10 pb-10 border-b border-slate-100 dark:border-slate-800">
                         {image || session.user.image ? (
-                            <div className="relative w-24 h-24 rounded-full overflow-hidden bg-slate-100 ring-4 ring-slate-50 shrink-0">
+                            <div className="relative w-24 h-24 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-800 ring-4 ring-slate-50 dark:ring-slate-950 shrink-0">
                                 <Image
                                     src={image || session.user.image}
                                     alt="Profile avatar"
@@ -93,19 +93,19 @@ const MyProfilePage = () => {
                                 />
                             </div>
                         ) : (
-                            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-slate-200 text-slate-600 text-3xl font-bold ring-4 ring-slate-50 shrink-0">
+                            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-3xl font-bold ring-4 ring-slate-50 dark:ring-slate-950 shrink-0">
                                 {getInitials(name || session.user.name)}
                             </div>
                         )}
                         <div>
-                            <h3 className="font-bold text-slate-900 mb-1">Profile Photo</h3>
-                            <p className="text-sm text-slate-500">Provide an image URL in the form below to change your avatar.</p>
+                            <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-1">Profile Photo</h3>
+                            <p className="text-sm text-slate-500 dark:text-slate-400">Provide an image URL in the form below to change your avatar.</p>
                         </div>
                     </div>
 
                     <form onSubmit={handleUpdateProfile} className="space-y-6 max-w-3xl">
                         <div className="space-y-2">
-                            <label htmlFor="name" className="block text-sm font-bold text-slate-700">
+                            <label htmlFor="name" className="block text-sm font-bold text-slate-700 dark:text-slate-300">
                                 Full Name
                             </label>
                             <input
@@ -113,13 +113,13 @@ const MyProfilePage = () => {
                                 type="text"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-slate-900"
+                                className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
                                 placeholder="Enter your full name"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label htmlFor="image" className="block text-sm font-bold text-slate-700">
+                            <label htmlFor="image" className="block text-sm font-bold text-slate-700 dark:text-slate-300">
                                 Image URL
                             </label>
                             <input
@@ -127,13 +127,13 @@ const MyProfilePage = () => {
                                 type="url"
                                 value={image}
                                 onChange={(e) => setImage(e.target.value)}
-                                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-slate-900"
+                                className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
                                 placeholder="https://example.com/avatar.jpg"
                             />
                         </div>
 
                         <div className="space-y-2 pt-2">
-                            <label htmlFor="email" className="block text-sm font-bold text-slate-700">
+                            <label htmlFor="email" className="block text-sm font-bold text-slate-700 dark:text-slate-300">
                                 Email Address
                             </label>
                             <input
@@ -141,9 +141,9 @@ const MyProfilePage = () => {
                                 type="email"
                                 value={session.user.email}
                                 disabled
-                                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-500 outline-none cursor-not-allowed"
+                                className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 outline-none cursor-not-allowed"
                             />
-                            <p className="text-xs text-slate-400 mt-2">Email cannot be changed directly.</p>
+                            <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">Email cannot be changed directly.</p>
                         </div>
 
                         {message && (

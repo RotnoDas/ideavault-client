@@ -55,10 +55,10 @@ const IdeaDetailsPage = async({params}) => {
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
                             {data.IdeaTitle}
                         </h1>
-                        <p className="text-xl text-slate-500 leading-relaxed">
+                        <p className="text-xl text-slate-500 dark:text-slate-400 leading-relaxed">
                             {data.DetailedDescription}
                         </p>
                     </div>
@@ -85,7 +85,7 @@ const IdeaDetailsPage = async({params}) => {
                     />
                 </div>
                 <div className="lg:col-span-1">
-                    <div className="sticky top-24 bg-white/70 backdrop-blur-md p-8 rounded-[2rem] border border-white/20 shadow-2xl space-y-8">
+                    <div className="sticky top-24 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-8 rounded-[2rem] border border-white/20 dark:border-slate-800 shadow-2xl dark:shadow-blue-900/10 space-y-8">
                         <div className="space-y-2">
                             <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">Budget</p>
                             <div className="flex items-baseline gap-2">
@@ -93,27 +93,27 @@ const IdeaDetailsPage = async({params}) => {
                             </div>
                         </div>
                         <div className="space-y-2">
-                            <div className="w-full h-px bg-slate-100"></div>
+                            <div className="w-full h-px bg-slate-100 dark:bg-slate-800"></div>
                             <div className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
                                 <ColorSwatch color="#0485F7" size="xs" />
                                 Target Audience:
                             </div>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-sm font-normal text-black">{data.TargetAudience}</span>
+                                <span className="text-sm font-normal text-black dark:text-slate-300">{data.TargetAudience}</span>
                             </div>
                             <div className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
                                 <ColorSwatch color="#0485F7" size="xs" />
                                 Problem Statement:
                             </div>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-sm font-normal text-black">{data.ProblemStatement}</span>
+                                <span className="text-sm font-normal text-black dark:text-slate-300">{data.ProblemStatement}</span>
                             </div>
                             <div className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
                                 <ColorSwatch color="#0485F7" size="xs" />
                                 Proposed Solution:
                             </div>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-sm font-normal text-black">{data.ProposedSolution}</span>
+                                <span className="text-sm font-normal text-black dark:text-slate-300">{data.ProposedSolution}</span>
                             </div>
                         </div>
                     </div>

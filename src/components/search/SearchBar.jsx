@@ -27,15 +27,15 @@ const SearchBar = () => {
     };
 
     return (
-        <form onSubmit={handleSearch} className="flex w-full gap-2 relative shadow-sm border border-slate-200 rounded-2xl bg-white p-2 focus-within:ring-2 focus-within:ring-blue-600 focus-within:border-transparent transition-all">
+        <form onSubmit={handleSearch} className="flex w-full gap-2 relative shadow-sm border border-slate-200 dark:border-slate-700 rounded-2xl bg-white dark:bg-slate-800 p-2 focus-within:ring-2 focus-within:ring-blue-600 focus-within:border-transparent transition-all">
             <div className="flex-1 flex items-center pl-3">
-                <SearchIcon className="text-slate-400 w-5 h-5 mr-3" />
+                <SearchIcon className="text-slate-400 dark:text-slate-500 w-5 h-5 mr-3" />
                 <input
                     type="text"
                     placeholder="Search for ideas by title..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-full bg-transparent border-0 outline-none focus:ring-0 focus:outline-none text-slate-800 placeholder:text-slate-400 text-lg py-1"
+                    className="w-full h-full bg-transparent border-0 outline-none focus:ring-0 focus:outline-none text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-lg py-1"
                 />
             </div>
             <Button 

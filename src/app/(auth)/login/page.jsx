@@ -35,21 +35,21 @@ const LoginPage = () => {
         });
     }
     return (
-        <div className="min-h-[80vh] flex flex-col bg-slate-50">
+        <div className="min-h-[80vh] flex flex-col bg-slate-50 dark:bg-transparent">
             <div className="flex items-center justify-center p-4">
                 <div className="w-full max-w-md">
-                    <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-2xl space-y-8 relative overflow-hidden">
+                    <div className="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl dark:shadow-blue-900/10 space-y-8 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
                         <div className="text-center space-y-2 relative">
-                            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-                                Welcome <span className="text-blue-600">Back</span>
+                            <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                                Welcome <span className="text-blue-600 dark:text-blue-400">Back</span>
                             </h2>
-                            <p className="text-slate-500 font-medium">Continue your journey today</p>
+                            <p className="text-slate-500 dark:text-slate-400 font-medium">Continue your journey today</p>
                         </div>
                         <div className="space-y-4">
                             <Button onClick={handleGoogleLogin}
                                 variant="bordered"
-                                className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3"
+                                className="w-full h-12 font-bold rounded-2xl border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors gap-3 dark:text-slate-200"
                             >
                                 <Image
                                     width={20}
@@ -63,10 +63,10 @@ const LoginPage = () => {
                         </div>
                         <div className="relative">
                             <div className="absolute inset-0 flex items-center">
-                                <span className="w-full border-t border-slate-100"></span>
+                                <span className="w-full border-t border-slate-100 dark:border-slate-800"></span>
                             </div>
                             <div className="relative flex justify-center text-xs uppercase">
-                                <span className="bg-white px-4 text-slate-400 font-bold tracking-widest">Or with email</span>
+                                <span className="bg-white dark:bg-slate-900 px-4 text-slate-400 dark:text-slate-500 font-bold tracking-widest">Or with email</span>
                             </div>
                         </div>
                         <form
@@ -76,7 +76,7 @@ const LoginPage = () => {
                             <div className="space-y-2">
                                 <label
                                     htmlFor="email"
-                                    className="text-sm font-bold text-slate-700 ml-1"
+                                    className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1"
                                 >
                                     Email Address
                                 </label>
@@ -86,13 +86,13 @@ const LoginPage = () => {
                                     placeholder="Enter your email"
                                     type="email"
                                     name="email"
-                                    className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
+                                    className="border-2 border-slate-200 dark:border-slate-700 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white dark:bg-slate-800 w-full rounded-2xl text-slate-900 dark:text-white"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label
                                     htmlFor="password"
-                                    className="text-sm font-bold text-slate-700 ml-1"
+                                    className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1"
                                 >
                                     Password
                                 </label>
@@ -102,13 +102,13 @@ const LoginPage = () => {
                                     placeholder="••••••••"
                                     type="password"
                                     name="password"
-                                    className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
+                                    className="border-2 border-slate-200 dark:border-slate-700 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white dark:bg-slate-800 w-full rounded-2xl text-slate-900 dark:text-white"
                                 />
                             </div>
                             <div className="flex justify-end">
                                 <Link
                                     href="/forget-password"
-                                    className="text-sm font-bold text-blue-600 hover:underline underline-offset-4 transition-all"
+                                    className="text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline underline-offset-4 transition-all"
                                 >
                                     Forgot password?
                                 </Link>
@@ -122,11 +122,11 @@ const LoginPage = () => {
                             </Button>
                         </form>
                         <div className="text-center pt-2">
-                            <p className="text-sm text-slate-500 font-medium">
+                            <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
                                 New to CourseHub?{' '}
                                 <Link
                                     href="/register"
-                                    className="text-blue-600 font-black hover:underline underline-offset-4 transition-all"
+                                    className="text-blue-600 dark:text-blue-400 font-black hover:underline underline-offset-4 transition-all"
                                 >
                                     Create an account
                                 </Link>

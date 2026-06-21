@@ -7,7 +7,7 @@ import { Rocket, ArrowRight } from 'lucide-react';
 
 const CallToAction = () => {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-linear-to-br from-blue-600 to-indigo-800 rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-blue-900/20">
                     {/* Decorative abstract background shapes */}

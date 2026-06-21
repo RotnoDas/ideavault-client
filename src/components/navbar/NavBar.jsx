@@ -27,26 +27,26 @@ const NavBar = () => {
     }
     const { data: session, isPending } = authClient.useSession();
     return (
-        <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/70 backdrop-blur-md shadow-sm py-2" : "bg-slate-50 py-4"
+        <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/70 dark:bg-slate-900/80 backdrop-blur-md shadow-sm py-2 border-b border-transparent dark:border-slate-800/50" : "bg-slate-50 dark:bg-slate-950 py-4"
             }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
                     <div className="flex items-center">
                         <Link href="/" className="flex items-center gap-2 group">
-                            <div className="p-2 bg-blue-600 rounded-xl group-hover:rotate-12 transition-transform">
+                            <div className="p-2 bg-blue-600 dark:bg-blue-500 rounded-xl group-hover:rotate-12 transition-transform">
                                 <Lightbulb className="w-6 h-6 text-white" />
                             </div>
-                            <span className="font-extrabold text-2xl tracking-tight text-slate-900">
+                            <span className="font-extrabold text-2xl tracking-tight text-slate-900 dark:text-white">
                                 IdeaVault
                             </span>
                         </Link>
                     </div>
                     <div className="hidden md:flex gap-8 items-center">
-                        <Link href="/" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Home</Link>
-                        <Link href="/ideas" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Ideas</Link>
-                        <Link href="/add-idea" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Add Idea</Link>
-                        <Link href="/my-idea" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">My Idea</Link>
-                        <Link href="/my-interaction" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">My Interaction</Link>
+                        <Link href="/" className="font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</Link>
+                        <Link href="/ideas" className="font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Ideas</Link>
+                        <Link href="/add-idea" className="font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Add Idea</Link>
+                        <Link href="/my-idea" className="font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">My Idea</Link>
+                        <Link href="/my-interaction" className="font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">My Interaction</Link>
                     </div>
                     <div className="hidden md:flex items-center gap-4">
                         <ThemeSwitcher />
@@ -58,7 +58,7 @@ const NavBar = () => {
                                 </div>
                             ) : !session ? (
                                 <>
-                                    <Link href="/login" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">Login</Link>
+                                    <Link href="/login" className="font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Login</Link>
                                     <Link href="/register">
                                         <Button color="primary" className="font-bold rounded-full px-8 shadow-lg shadow-blue-600/20">
                                             Join Free
@@ -106,21 +106,21 @@ const NavBar = () => {
                     </div>
                     <div className="md:hidden flex items-center gap-2">
                         <ThemeSwitcher />
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-lg hover:bg-muted transition-colors">
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300">
                             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </button>
                     </div>
                 </div>
             </div>
             {isMenuOpen && (
-                <div className="md:hidden px-4 pt-2 pb-6 space-y-2 bg-white border-b border-slate-200 animate-in slide-in-from-top duration-300 shadow-lg">
-                    <Link onClick={() => setIsMenuOpen(false)} href="/" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">Home</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} href="/ideas" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">Ideas</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} href="/add-idea" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">Add Idea</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} href="/my-idea" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">My Idea</Link>
-                    <Link onClick={() => setIsMenuOpen(false)} href="/my-interaction" className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl">My Interaction</Link>
+                <div className="md:hidden px-4 pt-2 pb-6 space-y-2 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 animate-in slide-in-from-top duration-300 shadow-lg">
+                    <Link onClick={() => setIsMenuOpen(false)} href="/" className="block px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl">Home</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} href="/ideas" className="block px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl">Ideas</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} href="/add-idea" className="block px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl">Add Idea</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} href="/my-idea" className="block px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl">My Idea</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} href="/my-interaction" className="block px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl">My Interaction</Link>
                     
-                    <div className="pt-4 border-t border-border mt-4">
+                    <div className="pt-4 border-t border-slate-200 dark:border-slate-800 mt-4">
                         {isPending ? (
                             <div className="flex flex-col gap-2">
                                 <div className="w-full h-12 bg-slate-100 animate-pulse rounded-xl"></div>
@@ -128,7 +128,7 @@ const NavBar = () => {
                         ) : !session ? (
                             <div className="grid grid-cols-2 gap-4">
                                 <Link href="/login" onClick={() => setIsMenuOpen(false)}>
-                                    <Button variant="bordered" className="w-full rounded-xl font-bold">Login</Button>
+                                    <Button variant="bordered" className="w-full rounded-xl font-bold dark:border-slate-700 dark:text-slate-300">Login</Button>
                                 </Link>
                                 <Link href="/register" onClick={() => setIsMenuOpen(false)}>
                                     <Button color="primary" className="w-full rounded-xl font-bold">Join Free</Button>
@@ -136,20 +136,20 @@ const NavBar = () => {
                             </div>
                         ) : (
                             <div className="flex flex-col gap-1">
-                                <div className="px-4 py-2 mb-2 bg-slate-50 rounded-xl border border-slate-100">
-                                    <p className="font-bold text-sm text-slate-900">{session?.user?.name}</p>
-                                    <p className="text-xs text-slate-500 truncate">{session?.user?.email}</p>
+                                <div className="px-4 py-3 mb-2 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+                                    <p className="font-bold text-sm text-slate-900 dark:text-slate-100">{session.user.name}</p>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{session.user.email}</p>
                                 </div>
                                 
-                                <p className="px-4 pt-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">Account</p>
+                                <p className="px-4 pt-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Account</p>
                                 
-                                <Link href="/my-profile" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl flex items-center gap-3">
+                                <Link href="/my-profile" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center gap-3">
                                     <LayoutDashboard className="w-5 h-5 text-slate-500" /> My Profile
                                 </Link>
                                 
                                 <button
                                     onClick={handleLogout}
-                                    className="w-full text-left px-4 py-3 text-base font-medium text-red-500 hover:bg-red-50 rounded-xl flex items-center gap-3"
+                                    className="w-full text-left px-4 py-3 text-base font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl flex items-center gap-3"
                                 >
                                     <LogOut className="w-5 h-5" /> Log Out
                                 </button>

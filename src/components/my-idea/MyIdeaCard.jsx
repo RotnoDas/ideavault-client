@@ -37,16 +37,16 @@ const MyIdeaCard = ({ idea, token }) => {
 
     return (
         <>
-            <div className="flex flex-col bg-white rounded-3xl border border-slate-200 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl relative">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 flex items-center justify-center">
+            <div className="flex flex-col bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl dark:hover:shadow-blue-900/20 relative">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
                     {idea.ImageURL ? (
                         <Image src={idea.ImageURL} alt={idea.IdeaTitle || "Idea image"} className="object-cover" fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"></Image>
                     ) : (
-                        <div className="text-slate-400 text-sm">No Image</div>
+                        <div className="text-slate-400 dark:text-slate-500 text-sm">No Image</div>
                     )}
                     <div className="absolute top-4 right-4 flex gap-2">
                         <Link href={`/edit-idea/${idea._id}`}>
-                            <Button size="sm" variant="flat" className="bg-white/90 backdrop-blur-sm shadow-sm font-medium border border-slate-200">
+                            <Button size="sm" variant="flat" className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-sm font-medium border border-slate-200 dark:border-slate-700 dark:text-white">
                                 Edit
                             </Button>
                         </Link>
@@ -84,20 +84,20 @@ const MyIdeaCard = ({ idea, token }) => {
                 </div>
                 <div className="p-6 flex flex-col grow space-y-4">
                     <div>
-                        <Chip color="primary" variant="flat" size="sm" className="font-bold mb-3 text-[10px] uppercase tracking-widest text-blue-600 bg-blue-50">
+                        <Chip color="primary" variant="flat" size="sm" className="font-bold mb-3 text-[10px] uppercase tracking-widest text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800">
                             {idea.Category || 'Idea'}
                         </Chip>
-                        <h3 className="text-xl font-bold leading-tight line-clamp-2 text-slate-900">
+                        <h3 className="text-xl font-bold leading-tight line-clamp-2 text-slate-900 dark:text-slate-100">
                             {idea.IdeaTitle}
                         </h3>
-                        <p className="text-sm text-slate-500 mt-2 font-medium line-clamp-2">
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-2 font-medium line-clamp-2">
                             {idea.ShortDescription}
                         </p>
                     </div>
                     
-                    <div className="flex items-center gap-2 mt-auto pt-4">
+                    <div className="flex items-center gap-2 mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
                         <Avatar name={idea.Author || 'U'} size="sm" className="w-6 h-6 text-[10px]" />
-                        <span className="text-xs font-bold text-slate-500">{idea.Author || 'Unknown'}</span>
+                        <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{idea.Author || 'Unknown'}</span>
                     </div>
 
                     <Link href={`/ideas/${idea._id}`} className="block w-full mt-4">

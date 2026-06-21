@@ -31,13 +31,13 @@ const MyIdeaPage = async() => {
     const ideas = await fetchMyIdeas(token);
 
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-slate-50 dark:bg-transparent">
             <main className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
                 <div className="mb-10">
-                    <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-3">
+                    <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-3">
                         My Ideas
                     </h1>
-                    <p className="text-slate-500 text-lg">
+                    <p className="text-slate-500 dark:text-slate-400 text-lg">
                         Manage and edit your submitted startup concepts.
                     </p>
                 </div>
@@ -48,9 +48,9 @@ const MyIdeaPage = async() => {
                             <MyIdeaCard key={idea._id} idea={idea} token={token} />
                         ))
                     ) : (
-                        <div className="col-span-full text-center py-20 bg-white rounded-3xl border border-dashed border-slate-200">
-                            <h3 className="text-xl font-bold text-slate-900 mb-2">No ideas yet</h3>
-                            <p className="text-slate-500 mb-6">You have not submitted any ideas to the vault.</p>
+                        <div className="col-span-full text-center py-20 bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">No ideas yet</h3>
+                            <p className="text-slate-500 dark:text-slate-400 mb-6">You have not submitted any ideas to the vault.</p>
                         </div>
                     )}
                 </div>

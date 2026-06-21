@@ -32,20 +32,20 @@ const MyInteractionPage = async() => {
     const interactions = await fetchInteractions(token);
 
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-slate-50 dark:bg-transparent">
             <main className="max-w-5xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
                 <div className="mb-10">
-                    <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-3">
+                    <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-3">
                         My Interactions
                     </h1>
-                    <p className="text-slate-500 text-lg">
+                    <p className="text-slate-500 dark:text-slate-400 text-lg">
                         View ideas you've liked and comments you've made.
                     </p>
                 </div>
 
-                <div className="border-b border-slate-300 mb-8 flex">
-                    <div className="border-b-2 border-blue-600 pb-3 px-2 -mb-[1px]">
-                        <span className="font-bold text-blue-600 text-sm tracking-wide">
+                <div className="border-b border-slate-300 dark:border-slate-800 mb-8 flex">
+                    <div className="border-b-2 border-blue-600 dark:border-blue-500 pb-3 px-2 -mb-[1px]">
+                        <span className="font-bold text-blue-600 dark:text-blue-500 text-sm tracking-wide">
                             Comments ({interactions.length})
                         </span>
                     </div>
@@ -54,19 +54,19 @@ const MyInteractionPage = async() => {
                 <div className="space-y-4">
                     {interactions.length > 0 ? (
                         interactions.map((interaction, index) => (
-                            <div key={index} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-200">
+                            <div key={index} className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md dark:hover:shadow-blue-900/10 transition-all duration-200">
                                 <Link href={`/ideas/${interaction.ideaId}`} className="block group">
-                                    <h3 className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest group-hover:text-blue-600 transition-colors">
+                                    <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-4 uppercase tracking-widest group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                         On Idea: {interaction.IdeaTitle}
                                     </h3>
                                     <div className="flex gap-4">
-                                        <Avatar name={interaction.user || 'U'} className="shrink-0 bg-blue-100 text-blue-600 font-bold" />
+                                        <Avatar name={interaction.user || 'U'} className="shrink-0 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 font-bold" />
                                         <div>
-                                            <h4 className="font-bold text-slate-900">{interaction.user || 'Unknown User'}</h4>
-                                            <p className="text-slate-600 mt-1 mb-3 leading-relaxed">
+                                            <h4 className="font-bold text-slate-900 dark:text-slate-100">{interaction.user || 'Unknown User'}</h4>
+                                            <p className="text-slate-600 dark:text-slate-300 mt-1 mb-3 leading-relaxed">
                                                 {interaction.comment}
                                             </p>
-                                            <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">
+                                            <p className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">
                                                 {new Date(interaction.date).toLocaleString()}
                                             </p>
                                         </div>
@@ -75,8 +75,8 @@ const MyInteractionPage = async() => {
                             </div>
                         ))
                     ) : (
-                        <div className="text-center py-16 bg-white rounded-3xl border border-dashed border-slate-200">
-                            <p className="text-slate-500 text-lg">You haven't made any comments yet.</p>
+                        <div className="text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
+                            <p className="text-slate-500 dark:text-slate-400 text-lg">You haven't made any comments yet.</p>
                         </div>
                     )}
                 </div>

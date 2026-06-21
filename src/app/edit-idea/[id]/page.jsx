@@ -104,29 +104,29 @@ const EditIdeaPage = () => {
         }
     };
 
-    const inputClasses = "border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 focus:outline-none transition-all duration-300 bg-white w-full rounded-2xl px-4 py-3";
+    const inputClasses = "border-2 border-slate-200 dark:border-slate-700 hover:border-blue-600/50 dark:hover:border-blue-500/50 focus-within:border-blue-600 focus:outline-none transition-all duration-300 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 w-full rounded-2xl px-4 py-3";
 
     if (isLoading) {
         return <Loading />;
     }
 
     if (!idea) {
-        return <div className="min-h-screen bg-slate-50 flex items-center justify-center font-bold text-slate-500">Idea not found.</div>;
+        return <div className="min-h-screen bg-slate-50 dark:bg-transparent flex items-center justify-center font-bold text-slate-500 dark:text-slate-400">Idea not found.</div>;
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 py-12">
+        <div className="min-h-screen bg-slate-50 dark:bg-transparent py-12">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-10">
-                    <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Edit Idea</h1>
-                    <p className="text-slate-500 font-medium">Update the details of your startup concept.</p>
+                    <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-2">Edit Idea</h1>
+                    <p className="text-slate-500 dark:text-slate-400 font-medium">Update the details of your startup concept.</p>
                 </div>
 
-                <div className="bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-xl">
+                <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 md:p-12 border border-slate-200 dark:border-slate-800 shadow-xl dark:shadow-blue-900/10">
                     <form onSubmit={handleSubmit} className="space-y-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="space-y-2">
-                                <label htmlFor="IdeaTitle" className="text-sm font-bold text-slate-700 ml-1">
+                                <label htmlFor="IdeaTitle" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                     Idea Title <span className="text-red-500">*</span>
                                 </label>
                                 <input
@@ -140,7 +140,7 @@ const EditIdeaPage = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="Category" className="text-sm font-bold text-slate-700 ml-1">
+                                <label htmlFor="Category" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                     Category <span className="text-red-500">*</span>
                                 </label>
                                 <select
@@ -159,7 +159,7 @@ const EditIdeaPage = () => {
                         </div>
 
                         <div className="space-y-2">
-                            <label htmlFor="ShortDescription" className="text-sm font-bold text-slate-700 ml-1">
+                            <label htmlFor="ShortDescription" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                 Short Description <span className="text-red-500">*</span>
                             </label>
                             <input
@@ -173,7 +173,7 @@ const EditIdeaPage = () => {
                         </div>
 
                         <div className="space-y-2">
-                            <label htmlFor="DetailedDescription" className="text-sm font-bold text-slate-700 ml-1">
+                            <label htmlFor="DetailedDescription" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                 Detailed Description <span className="text-red-500">*</span>
                             </label>
                             <textarea
@@ -189,7 +189,7 @@ const EditIdeaPage = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="space-y-2">
-                                <label htmlFor="Tags" className="text-sm font-bold text-slate-700 ml-1">
+                                <label htmlFor="Tags" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                     Tags
                                 </label>
                                 <input
@@ -202,7 +202,7 @@ const EditIdeaPage = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="ImageURL" className="text-sm font-bold text-slate-700 ml-1">
+                                <label htmlFor="ImageURL" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                     Image URL
                                 </label>
                                 <input
@@ -216,7 +216,7 @@ const EditIdeaPage = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="EstimatedBudget" className="text-sm font-bold text-slate-700 ml-1">
+                                <label htmlFor="EstimatedBudget" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                     Estimated Budget
                                 </label>
                                 <input
@@ -229,7 +229,7 @@ const EditIdeaPage = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="TargetAudience" className="text-sm font-bold text-slate-700 ml-1">
+                                <label htmlFor="TargetAudience" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                     Target Audience
                                 </label>
                                 <input
@@ -244,7 +244,7 @@ const EditIdeaPage = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="space-y-2">
-                                <label htmlFor="ProblemStatement" className="text-sm font-bold text-slate-700 ml-1">
+                                <label htmlFor="ProblemStatement" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                     Problem Statement
                                 </label>
                                 <textarea
@@ -258,7 +258,7 @@ const EditIdeaPage = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="ProposedSolution" className="text-sm font-bold text-slate-700 ml-1">
+                                <label htmlFor="ProposedSolution" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                                     Proposed Solution
                                 </label>
                                 <textarea

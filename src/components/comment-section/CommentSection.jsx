@@ -117,8 +117,8 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
     };
 
     return (
-        <div className="mt-12 pt-8 border-t border-slate-100">
-            <h3 className="text-2xl font-black text-slate-900 mb-8">Comments</h3>
+        <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800">
+            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-8">Comments</h3>
             <div className="space-y-6 mb-10">
                 {comments && comments.length > 0 ? (
                     comments.map((c, index) => {
@@ -126,11 +126,11 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
                         const isEditing = editingCommentId === c.id;
                         
                         return (
-                            <div key={c.id || index} className="flex gap-4 p-5 bg-white rounded-3xl shadow-sm border border-slate-100 transition-all hover:shadow-md">
-                                <Avatar name={c.user || 'U'} className="shrink-0 bg-blue-100 text-blue-600 font-bold" />
+                            <div key={c.id || index} className="flex gap-4 p-5 bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 transition-all hover:shadow-md dark:hover:shadow-blue-900/10">
+                                <Avatar name={c.user || 'U'} className="shrink-0 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 font-bold" />
                                 <div className="w-full">
                                     <div className="flex justify-between items-start mb-2">
-                                        <h4 className="font-bold text-slate-900">{c.user || 'Unknown User'}</h4>
+                                        <h4 className="font-bold text-slate-900 dark:text-slate-100">{c.user || 'Unknown User'}</h4>
                                         
                                         {/* Show Edit/Delete only if the user is the owner and the comment has an ID (new comments) */}
                                         {isOwner && c.id && !isEditing && (
@@ -158,7 +158,7 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
                                             <textarea 
                                                 value={editContent}
                                                 onChange={(e) => setEditContent(e.target.value)}
-                                                className="w-full bg-slate-50 focus:bg-white transition-colors border border-slate-200 rounded-xl p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                                                className="w-full bg-slate-50 dark:bg-slate-800 focus:bg-white dark:focus:bg-slate-900 transition-colors border border-slate-200 dark:border-slate-700 rounded-xl p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-900 dark:text-white"
                                                 rows={3}
                                             />
                                             <div className="flex justify-end gap-2">
@@ -183,30 +183,30 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
                                             </div>
                                         </div>
                                     ) : (
-                                        <p className="text-slate-600 leading-relaxed">{c.comment}</p>
+                                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{c.comment}</p>
                                     )}
                                 </div>
                             </div>
                         );
                     })
                 ) : (
-                    <div className="text-center p-8 bg-slate-50 rounded-3xl border border-dashed border-slate-200">
-                        <p className="text-slate-500 italic">No comments yet. Be the first to share your thoughts!</p>
+                    <div className="text-center p-8 bg-slate-50 dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
+                        <p className="text-slate-500 dark:text-slate-400 italic">No comments yet. Be the first to share your thoughts!</p>
                     </div>
                 )}
             </div>
             {session ? (
-                <form onSubmit={handleSubmit} className="bg-white p-6 md:p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 relative overflow-hidden">
+                <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-blue-900/10 border border-slate-100 dark:border-slate-800 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-blue-500 to-indigo-500"></div>
                     <div className="flex items-center gap-3 mb-6">
-                        <Avatar name={session.user.name || 'U'} size="sm" />
-                        <h4 className="font-bold text-slate-900">Leave a comment as {session.user.name}</h4>
+                        <Avatar name={session.user.name || 'U'} size="sm" className="bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400" />
+                        <h4 className="font-bold text-slate-900 dark:text-slate-100">Leave a comment as {session.user.name}</h4>
                     </div>
                     <textarea 
                         placeholder="What are your thoughts on this idea? Share your perspective..."
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
-                        className="w-full bg-slate-50 focus:bg-white transition-colors border border-slate-200 rounded-xl p-4 mb-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full bg-slate-50 dark:bg-slate-800 focus:bg-white dark:focus:bg-slate-900 transition-colors border border-slate-200 dark:border-slate-700 rounded-xl p-4 mb-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
                         rows={4}
                     />
                     <div className="flex justify-end">
@@ -222,9 +222,9 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
                     </div>
                 </form>
             ) : (
-                <div className="bg-slate-50 p-8 rounded-[2.5rem] text-center border border-slate-100">
-                    <h4 className="text-lg font-bold text-slate-900 mb-2">Join the conversation</h4>
-                    <p className="text-slate-600">Please log in to leave a comment.</p>
+                <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-[2.5rem] text-center border border-slate-100 dark:border-slate-800">
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Join the conversation</h4>
+                    <p className="text-slate-600 dark:text-slate-400">Please log in to leave a comment.</p>
                 </div>
             )}
         </div>
