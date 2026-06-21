@@ -52,7 +52,7 @@ const MyIdeaCard = ({ idea, token }) => {
                         </Link>
                         
                         <AlertDialog isOpen={isOpen} onOpenChange={setIsOpen}>
-                            <Button size="sm" color="danger" className="shadow-sm font-medium">
+                            <Button size="sm" className="bg-red-600 hover:bg-red-700 text-white shadow-sm font-medium backdrop-blur-sm border-none">
                                 Delete
                             </Button>
                             <AlertDialog.Backdrop>
@@ -72,7 +72,7 @@ const MyIdeaCard = ({ idea, token }) => {
                                             <Button variant="light" onPress={() => setIsOpen(false)}>
                                                 Cancel
                                             </Button>
-                                            <Button color="danger" isLoading={isDeleting} onPress={() => handleDelete(() => setIsOpen(false))}>
+                                            <Button isLoading={isDeleting} onPress={() => handleDelete(() => setIsOpen(false))} className="bg-red-600 hover:bg-red-700 text-white font-bold">
                                                 Delete Idea
                                             </Button>
                                         </AlertDialog.Footer>
