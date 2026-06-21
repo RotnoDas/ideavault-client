@@ -19,6 +19,26 @@ const fetchSingleIdea = async(id, token) => {
     const idea = await response.json();
     return idea;
 }
+
+export async function generateMetadata({ params }) {
+    const { id } = await params;
+    const tokenData = await auth.api.getToken({
+        headers: await headers()
+    });
+    const token = tokenData?.token || "";
+    const data = await fetchSingleIdea(id, token);
+    
+    if (!data) {
+        return {
+            title: "Idea Not Found"
+        };
+    }
+
+    return {
+        title: data.IdeaTitle,
+        description: data.ShortDescription
+    };
+}
 const IdeaDetailsPage = async({params}) => {
     const tokenData = await auth.api.getToken({
         headers: await headers()

@@ -19,6 +19,10 @@ const fetchInteractions = async(token) => {
     return data;
 }
 
+export const metadata = {
+    title: "My Interactions",
+};
+
 const MyInteractionPage = async() => {
     const tokenData = await auth.api.getToken({
         headers: await headers()

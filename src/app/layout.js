@@ -19,7 +19,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "IdeaVault",
+  title: {
+    template: "%s | IdeaVault",
+    default: "IdeaVault - Discover and share groundbreaking ideas",
+  },
   description: "Discover and share groundbreaking ideas.",
 };
 

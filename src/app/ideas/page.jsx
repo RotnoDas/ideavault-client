@@ -3,6 +3,20 @@ import Search from '@/components/search/Search';
 import { fetchIdeas } from '@/lib/fetchIdeas';
 import React from 'react';
 
+export async function generateMetadata({ searchParams }) {
+    const params = await searchParams;
+    const search = params?.search || '';
+    const category = params?.category || '';
+    
+    if (search) {
+        return { title: `Search: ${search}` };
+    }
+    if (category && category !== 'All Categories') {
+        return { title: `${category} Ideas` };
+    }
+    return { title: 'Browse Ideas' };
+}
+
 const IdeasPage = async ({ searchParams }) => {
     const searchParamsData = await searchParams;
     const searchTerm = searchParamsData.search || '';

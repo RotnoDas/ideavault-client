@@ -18,6 +18,10 @@ const fetchMyIdeas = async(token) => {
     return data;
 }
 
+export const metadata = {
+    title: "My Ideas",
+};
+
 const MyIdeaPage = async() => {
     const tokenData = await auth.api.getToken({
         headers: await headers()
