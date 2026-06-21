@@ -6,14 +6,15 @@ import React from 'react';
 const IdeasPage = async ({ searchParams }) => {
     const searchParamsData = await searchParams;
     const searchTerm = searchParamsData.search || '';
-    const data = await fetchIdeas(searchTerm);
+    const category = searchParamsData.category || '';
+    const data = await fetchIdeas(searchTerm, category);
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-transparent">
             <Search></Search>
             <main className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center mb-12">
                     <h2 className="text-2xl font-bold flex items-center gap-2 text-slate-900 dark:text-white">
-                        {searchTerm ? `Search Results for "${searchTerm}"` : 'All Ideas'}
+                        {searchTerm ? `Search Results for "${searchTerm}"` : (category && category !== 'All Categories' ? `${category} Ideas` : 'All Ideas')}
                     </h2>
                 </div>
                 {data.length > 0 ? (
