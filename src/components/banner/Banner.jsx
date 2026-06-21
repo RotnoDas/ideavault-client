@@ -80,7 +80,7 @@ const Banner = () => {
                             </div>
                             <div className="relative group">
                                 <div className="absolute -inset-1 bg-linear-to-r from-primary to-blue-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                                <div className="relative bg-white p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
+                                <div className="relative bg-white dark:bg-slate-900 p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
                                     <Image
                                         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
                                         alt="Learning"
@@ -88,7 +88,7 @@ const Banner = () => {
                                         sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="rounded-[2rem] object-cover transform transition duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-2xl">
+                                    <div className="absolute bottom-8 left-8 right-8 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 dark:border-slate-800/30 shadow-2xl">
                                         <div className="flex items-center gap-4">
                                             <div className="flex -space-x-3">
                                                 {[1, 2, 3, 4].map((i) => (
@@ -97,13 +97,13 @@ const Banner = () => {
                                                         src={`https://i.pravatar.cc/100?img=${i + 10}`}
                                                         width={40}
                                                         height={40}
-                                                        className="w-10 h-10 rounded-full border-2 border-white shadow-md"
+                                                        className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 shadow-md"
                                                         alt="avatar"
                                                     />
                                                 ))}
                                             </div>
                                             <div>
-                                                <p className="font-bold text-sm">Join the community</p>
+                                                <p className="font-bold text-sm text-slate-900 dark:text-white">Join the community</p>
                                             </div>
                                         </div>
                                     </div>
@@ -116,18 +116,18 @@ const Banner = () => {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-8">
-                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 rounded-full border border-blue-600/20 text-blue-600 font-bold text-sm animate-bounce-slow">
-                                    <Star className="w-4 h-4 fill-blue-600" />
+                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 dark:bg-blue-600/20 rounded-full border border-blue-600/20 dark:border-blue-600/30 text-blue-600 dark:text-blue-400 font-bold text-sm animate-bounce-slow">
+                                    <Star className="w-4 h-4 fill-blue-600 dark:fill-blue-400" />
                                     <span>Trusted by 10,000+ Innovators Worldwide</span>
                                 </div>
-                                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                                     Your Central Hub for{' '}
                                     <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-blue-800">
                                         Brilliant
                                     </span>{' '}
                                     Ideas
                                 </h1>
-                                <p className="text-xl text-slate-500 leading-relaxed max-w-xl">
+                                <p className="text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl">
                                     Discover, share, and collaborate on groundbreaking concepts. Join IdeaVault and turn your sparks of imagination into reality.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -143,9 +143,9 @@ const Banner = () => {
                                     <Button
                                         variant="bordered"
                                         size="lg"
-                                        className="h-14 px-8 text-lg font-bold rounded-full group"
+                                        className="h-14 px-8 text-lg font-bold rounded-full group dark:text-white"
                                     >
-                                        <Play className="mr-2 fill-slate-900 group-hover:scale-110 transition-transform" /> Watch Demo
+                                        <Play className="mr-2 fill-slate-900 dark:fill-white group-hover:scale-110 transition-transform" /> Watch Demo
                                     </Button>
                                 </div>
                                 <div className="flex items-center gap-6 pt-6 grayscale opacity-60">
@@ -174,7 +174,7 @@ const Banner = () => {
                             </div>
                             <div className="relative group">
                                 <div className="absolute -inset-1 bg-linear-to-r from-primary to-blue-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                                <div className="relative bg-white p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
+                                <div className="relative bg-white dark:bg-slate-900 p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
                                     <Image
                                         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
                                         alt="Learning"
@@ -182,7 +182,7 @@ const Banner = () => {
                                         sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="rounded-[2rem] object-cover transform transition duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-2xl">
+                                    <div className="absolute bottom-8 left-8 right-8 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 dark:border-slate-800/30 shadow-2xl">
                                         <div className="flex items-center gap-4">
                                             <div className="flex -space-x-3">
                                                 {[1, 2, 3, 4].map((i) => (
@@ -191,13 +191,13 @@ const Banner = () => {
                                                         src={`https://i.pravatar.cc/100?img=${i + 10}`}
                                                         width={40}
                                                         height={40}
-                                                        className="w-10 h-10 rounded-full border-2 border-white shadow-md"
+                                                        className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 shadow-md"
                                                         alt="avatar"
                                                     />
                                                 ))}
                                             </div>
                                             <div>
-                                                <p className="font-bold text-sm">Join the community</p>
+                                                <p className="font-bold text-sm text-slate-900 dark:text-white">Join the community</p>
                                             </div>
                                         </div>
                                     </div>
@@ -210,18 +210,18 @@ const Banner = () => {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-8">
-                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 rounded-full border border-blue-600/20 text-blue-600 font-bold text-sm animate-bounce-slow">
-                                    <Star className="w-4 h-4 fill-blue-600" />
+                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 dark:bg-blue-600/20 rounded-full border border-blue-600/20 dark:border-blue-600/30 text-blue-600 dark:text-blue-400 font-bold text-sm animate-bounce-slow">
+                                    <Star className="w-4 h-4 fill-blue-600 dark:fill-blue-400" />
                                     <span>Trusted by 10,000+ Innovators Worldwide</span>
                                 </div>
-                                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                                     Discover and Share{' '}
                                     <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-blue-800">
                                         Groundbreaking
                                     </span>{' '}
                                     Ideas
                                 </h1>
-                                <p className="text-xl text-slate-500 leading-relaxed max-w-xl">
+                                <p className="text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl">
                                     Discover, share, and collaborate on groundbreaking concepts. Join IdeaVault and turn your sparks of imagination into reality.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -237,9 +237,9 @@ const Banner = () => {
                                     <Button
                                         variant="bordered"
                                         size="lg"
-                                        className="h-14 px-8 text-lg font-bold rounded-full group"
+                                        className="h-14 px-8 text-lg font-bold rounded-full group dark:text-white"
                                     >
-                                        <Play className="mr-2 fill-slate-900 group-hover:scale-110 transition-transform" /> Watch Demo
+                                        <Play className="mr-2 fill-slate-900 dark:fill-white group-hover:scale-110 transition-transform" /> Watch Demo
                                     </Button>
                                 </div>
                                 <div className="flex items-center gap-6 pt-6 grayscale opacity-60">
@@ -268,7 +268,7 @@ const Banner = () => {
                             </div>
                             <div className="relative group">
                                 <div className="absolute -inset-1 bg-linear-to-r from-primary to-blue-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                                <div className="relative bg-white p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
+                                <div className="relative bg-white dark:bg-slate-900 p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
                                     <Image
                                         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
                                         alt="Learning"
@@ -276,7 +276,7 @@ const Banner = () => {
                                         sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="rounded-[2rem] object-cover transform transition duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-2xl">
+                                    <div className="absolute bottom-8 left-8 right-8 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 dark:border-slate-800/30 shadow-2xl">
                                         <div className="flex items-center gap-4">
                                             <div className="flex -space-x-3">
                                                 {[1, 2, 3, 4].map((i) => (
@@ -285,13 +285,13 @@ const Banner = () => {
                                                         src={`https://i.pravatar.cc/100?img=${i + 10}`}
                                                         width={40}
                                                         height={40}
-                                                        className="w-10 h-10 rounded-full border-2 border-white shadow-md"
+                                                        className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 shadow-md"
                                                         alt="avatar"
                                                     />
                                                 ))}
                                             </div>
                                             <div>
-                                                <p className="font-bold text-sm">Join the community</p>
+                                                <p className="font-bold text-sm text-slate-900 dark:text-white">Join the community</p>
                                             </div>
                                         </div>
                                     </div>
