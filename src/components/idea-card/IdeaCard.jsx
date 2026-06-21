@@ -7,7 +7,11 @@ const IdeaCard = ({ idea }) => {
     return (
         <div className="group flex flex-col bg-white dark:bg-slate-900 rounded-4xl border border-slate-200 dark:border-slate-800 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-blue-900/20">
             <div className="relative overflow-hidden aspect-16/10">
-                <Image src={idea.ImageURL} alt={idea.IdeaTitle} className="object-cover group-hover:scale-110 transition-transform duration-700" fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"></Image>
+                {idea.ImageURL ? (
+                    <Image src={idea.ImageURL} alt={idea.IdeaTitle} className="object-cover group-hover:scale-110 transition-transform duration-700" fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"></Image>
+                ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 text-sm">No Image</div>
+                )}
                 <div className="absolute top-4 right-4">
                     <Chip color="primary" variant="solid" className="font-bold shadow-lg shadow-blue-600/20">
                         {idea.Category}
