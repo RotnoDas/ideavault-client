@@ -23,7 +23,7 @@ export function ThemeSwitcher() {
   return (
     <Switch
       isSelected={isDark}
-      onValueChange={(isSelected) => setTheme(isSelected ? "dark" : "light")}
+      onValueChange={(val) => setTheme(val ? "dark" : "light")}
       onChange={(e) => {
         if (typeof e === "boolean") {
           setTheme(e ? "dark" : "light");
@@ -31,16 +31,16 @@ export function ThemeSwitcher() {
           setTheme(e.target.checked ? "dark" : "light");
         }
       }}
-      size="md"
+      size="lg"
       color="primary"
     >
       <Switch.Content>
         <Switch.Control>
-          <Switch.Thumb>
+          <Switch.Thumb className="flex items-center justify-center">
             {isDark ? (
-              <Moon className="w-3 h-3 text-slate-900" />
+              <Moon className="w-4 h-4 text-blue-600" />
             ) : (
-              <Sun className="w-3 h-3 text-amber-500" />
+              <Sun className="w-4 h-4 text-amber-500" />
             )}
           </Switch.Thumb>
         </Switch.Control>
