@@ -29,7 +29,7 @@ const LoginForm = () => {
             return;
         } else {
             toast.success("Login successful.");
-            router.push(redirectUrl);
+            window.location.href = redirectUrl;
         }
     }
 

@@ -24,12 +24,16 @@ const RegisterForm = () => {
             image: registerData.image,
             callbackURL: redirectUrl
         });
+        
+        // Ensure the JWT token is generated and cookies are fully synchronized 
+        await authClient.token();
+
         if (error) {
             toast.error(error.message || "Registration failed. Please try again.");
             return;
         } else {
             toast.success("Registration successful.");
-            router.push(redirectUrl);
+            window.location.href = redirectUrl;
         }
     }
 
