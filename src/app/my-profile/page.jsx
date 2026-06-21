@@ -41,6 +41,7 @@ const MyProfilePage = () => {
         setLoading(true);
         setMessage('');
         try {
+            const oldName = session?.user?.name || '';
             const { data, error } = await authClient.updateUser({
                 name: name,
                 image: image
@@ -48,6 +49,21 @@ const MyProfilePage = () => {
             if (error) {
                 setMessage({ type: 'error', text: error.message || 'Failed to update profile' });
             } else {
+                if (oldName && oldName !== name) {
+                    try {
+                        const { data: tokenObj } = await authClient.token();
+                        await fetch(`${process.env.NEXT_PUBLIC_ALL_API || "http://localhost:8000"}/update-user-name`, {
+                            method: "PUT",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${tokenObj?.token || ''}`
+                            },
+                            body: JSON.stringify({ oldName: oldName, newName: name })
+                        });
+                    } catch (e) {
+                        console.error("Failed to cascade name change", e);
+                    }
+                }
                 setMessage({ type: 'success', text: 'Profile updated successfully!' });
                 router.refresh(); 
             }
@@ -58,10 +74,8 @@ const MyProfilePage = () => {
         }
     };
 
-    // Extract first name for the welcome message
     const firstName = session.user.name ? session.user.name.split(' ')[0] : 'User';
 
-    // Get initials for avatar fallback
     const getInitials = (fullName) => {
         if (!fullName) return 'U';
         return fullName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);

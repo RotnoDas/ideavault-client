@@ -14,7 +14,7 @@ import Link from 'next/link';
 
 const Banner = () => {
     return (
-        <section className="relative overflow-hidden pt-12 pb-24 md:pt-24 md:pb-32 bg-gradient-to-b from-blue-50 via-slate-50 to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
+        <section className="relative overflow-hidden pt-12 pb-24 md:pt-24 md:pb-32 bg-linear-to-b from-blue-50 via-slate-50 to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
             <Swiper
                 navigation
                 pagination={true} modules={[Pagination, Navigation]} className="mySwiper">

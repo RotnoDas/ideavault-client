@@ -14,7 +14,6 @@ export function ThemeSwitcher() {
   }, []);
 
   if (!mounted) {
-    // Render a skeleton or invisible switch to prevent layout shift during hydration
     return <div className="w-14 h-8" />;
   }
 

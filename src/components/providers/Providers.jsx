@@ -3,7 +3,6 @@
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useEffect } from "react";
 
-// Workaround for next-themes in React 19
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   const orig = console.error;
   console.error = (...args) => {

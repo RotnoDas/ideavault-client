@@ -9,13 +9,11 @@ const ForgetPassword = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // UI only right now
         setIsSubmitted(true);
     };
 
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex">
-            {/* Left side - Decorative */}
             <div className="hidden lg:flex w-1/2 bg-blue-600 relative overflow-hidden items-center justify-center">
                 <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-indigo-900"></div>
                 <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -36,12 +34,11 @@ const ForgetPassword = () => {
                         Reset your password.
                     </h1>
                     <p className="text-blue-100 text-xl font-medium leading-relaxed">
-                        Don't worry, it happens to the best of us. We'll send you secure instructions to get back into your account.
+                        Do not worry, it happens to the best of us. We will send you secure instructions to get back into your account.
                     </p>
                 </div>
             </div>
 
-            {/* Right side - Form */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 md:p-20">
                 <div className="w-full max-w-md">
                     <div className="mb-10">
@@ -55,7 +52,7 @@ const ForgetPassword = () => {
                         
                         <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-3">Forgot Password</h2>
                         <p className="text-slate-500 dark:text-slate-400 font-medium">
-                            Enter your email address and we'll send you a link to reset your password.
+                            Enter your email address and we will send you a link to reset your password.
                         </p>
                     </div>
 
@@ -93,7 +90,7 @@ const ForgetPassword = () => {
                             </div>
                             <h3 className="font-bold text-lg mb-2">Check your email</h3>
                             <p className="text-green-700/80">
-                                We've sent password reset instructions to your email address.
+                                We have sent password reset instructions to your email address.
                             </p>
                         </div>
                     )}

@@ -11,7 +11,6 @@ const CommentSection = ({ ideaId, initialComments = [], apiBaseUrl, token }) => 
     const [newComment, setNewComment] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     
-    // Edit state
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editContent, setEditContent] = useState('');
     const [isEditingSubmitting, setIsEditingSubmitting] = useState(false);

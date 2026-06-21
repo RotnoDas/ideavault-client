@@ -14,7 +14,7 @@ const MyIdeaCard = ({ idea, token }) => {
     const handleDelete = async (onClose) => {
         setIsDeleting(true);
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_ALL_API || 'http://localhost:8000'}/ideas/${idea._id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_ALL_API || process.env.PUBLIC_ALL_API || "http://localhost:8000"}/ideas/${idea._id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -38,7 +38,7 @@ const MyIdeaCard = ({ idea, token }) => {
     return (
         <>
             <div className="flex flex-col bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl dark:hover:shadow-blue-900/20 relative">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                <div className="relative aspect-16/10 w-full overflow-hidden bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
                     {idea.ImageURL ? (
                         <Image src={idea.ImageURL} alt={idea.IdeaTitle || "Idea image"} className="object-cover" fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"></Image>
                     ) : (
@@ -57,7 +57,7 @@ const MyIdeaCard = ({ idea, token }) => {
                             </Button>
                             <AlertDialog.Backdrop>
                                 <AlertDialog.Container>
-                                    <AlertDialog.Dialog className="sm:max-w-[400px]">
+                                    <AlertDialog.Dialog className="sm:max-w-100">
                                         <AlertDialog.CloseTrigger />
                                         <AlertDialog.Header>
                                             <AlertDialog.Icon status="danger" />

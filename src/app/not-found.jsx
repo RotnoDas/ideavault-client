@@ -6,7 +6,6 @@ export default function NotFound() {
     return (
         <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center bg-slate-50/50 dark:bg-transparent">
             <div className="space-y-8 max-w-2xl mx-auto">
-                {/* Visual Element */}
                 <div className="relative">
                     <div className="text-[150px] sm:text-[200px] font-black text-transparent bg-clip-text bg-linear-to-br from-blue-600 to-blue-300 leading-none select-none drop-shadow-sm">
                         404

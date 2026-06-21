@@ -7,7 +7,6 @@ const Footer = () => {
         <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                    {/* Brand */}
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center gap-2 group">
                             <Lightbulb className="w-6 h-6 text-blue-600 dark:text-blue-500 group-hover:rotate-12 transition-transform" />
@@ -20,7 +19,6 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Platform */}
                     <div>
                         <h3 className="font-bold text-slate-900 dark:text-white mb-4">Platform</h3>
                         <ul className="space-y-3">
@@ -30,7 +28,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Categories */}
                     <div>
                         <h3 className="font-bold text-slate-900 dark:text-white mb-4">Categories</h3>
                         <ul className="space-y-3">
@@ -45,7 +42,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Connect */}
                     <div>
                         <h3 className="font-bold text-slate-900 dark:text-white mb-4">Connect</h3>
                         <div className="flex items-center gap-4 mb-4">

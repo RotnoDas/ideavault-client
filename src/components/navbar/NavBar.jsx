@@ -18,12 +18,16 @@ const NavBar = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-    const handleLogout = async() => {
-        await signOut();
-        toast.success("Logged out successfully");
-        router.refresh();
-        router.push("/login");
-        setIsMenuOpen(false);
+    const handleLogout = async () => {
+        await signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    toast.success("Logged out successfully");
+                    setIsMenuOpen(false);
+                    window.location.href = "/login";
+                }
+            }
+        });
     }
     const { data: session, isPending } = authClient.useSession();
     return (
@@ -119,7 +123,7 @@ const NavBar = () => {
                     <Link onClick={() => setIsMenuOpen(false)} href="/add-idea" className="block px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl">Add Idea</Link>
                     <Link onClick={() => setIsMenuOpen(false)} href="/my-idea" className="block px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl">My Idea</Link>
                     <Link onClick={() => setIsMenuOpen(false)} href="/my-interaction" className="block px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl">My Interaction</Link>
-                    
+
                     <div className="pt-4 border-t border-slate-200 dark:border-slate-800 mt-4">
                         {isPending ? (
                             <div className="flex flex-col gap-2">
@@ -140,13 +144,13 @@ const NavBar = () => {
                                     <p className="font-bold text-sm text-slate-900 dark:text-slate-100">{session.user.name}</p>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{session.user.email}</p>
                                 </div>
-                                
+
                                 <p className="px-4 pt-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Account</p>
-                                
+
                                 <Link href="/my-profile" onClick={() => setIsMenuOpen(false)} className="px-4 py-3 text-base font-medium text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl flex items-center gap-3">
                                     <LayoutDashboard className="w-5 h-5 text-slate-500" /> My Profile
                                 </Link>
-                                
+
                                 <button
                                     onClick={handleLogout}
                                     className="w-full text-left px-4 py-3 text-base font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl flex items-center gap-3"

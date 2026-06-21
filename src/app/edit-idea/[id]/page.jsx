@@ -29,7 +29,7 @@ const EditIdeaPage = () => {
         const fetchIdea = async () => {
             try {
                 const { data: tokenObj } = await authClient.token();
-                const response = await fetch(`http://localhost:8000/ideas/${ideaId}`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_ALL_API || "http://localhost:8000"}/ideas/${ideaId}`, {
                     headers: {
                         'Authorization': `Bearer ${tokenObj?.token || ''}`
                     }
@@ -80,7 +80,7 @@ const EditIdeaPage = () => {
 
             const { data: tokenObj } = await authClient.token();
             
-            const response = await fetch(`http://localhost:8000/ideas/${ideaId}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_ALL_API || "http://localhost:8000"}/ideas/${ideaId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

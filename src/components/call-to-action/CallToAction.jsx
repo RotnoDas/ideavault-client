@@ -10,7 +10,6 @@ const CallToAction = () => {
         <section className="py-24 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-linear-to-br from-blue-600 to-indigo-800 rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-blue-900/20">
-                    {/* Decorative abstract background shapes */}
                     <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
                     <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
                     

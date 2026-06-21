@@ -43,12 +43,12 @@ const MyInteractionPage = async() => {
                         My Interactions
                     </h1>
                     <p className="text-slate-500 dark:text-slate-400 text-lg">
-                        View ideas you've liked and comments you've made.
+                        View ideas you have liked and comments you have made.
                     </p>
                 </div>
 
                 <div className="border-b border-slate-300 dark:border-slate-800 mb-8 flex">
-                    <div className="border-b-2 border-blue-600 dark:border-blue-500 pb-3 px-2 -mb-[1px]">
+                    <div className="border-b-2 border-blue-600 dark:border-blue-500 pb-3 px-2 -mb-px">
                         <span className="font-bold text-blue-600 dark:text-blue-500 text-sm tracking-wide">
                             Comments ({interactions.length})
                         </span>
@@ -80,7 +80,7 @@ const MyInteractionPage = async() => {
                         ))
                     ) : (
                         <div className="text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
-                            <p className="text-slate-500 dark:text-slate-400 text-lg">You haven't made any comments yet.</p>
+                            <p className="text-slate-500 dark:text-slate-400 text-lg">You have not made any comments yet.</p>
                         </div>
                     )}
                 </div>

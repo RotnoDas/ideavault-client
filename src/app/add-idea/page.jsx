@@ -33,7 +33,6 @@ const AddIdeaPage = () => {
             newIdea.Tags = [];
         }
 
-        // Validate basic fields
         if (!newIdea.IdeaTitle || !newIdea.Category || !newIdea.ShortDescription || !newIdea.DetailedDescription) {
             toast.error("Please fill in all required fields.");
             setIsSubmitting(false);
@@ -50,7 +49,7 @@ const AddIdeaPage = () => {
 
             const { data: tokenObj } = await authClient.token();
             
-            const response = await fetch("http://localhost:8000/ideas", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_ALL_API || "http://localhost:8000"}/ideas`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
