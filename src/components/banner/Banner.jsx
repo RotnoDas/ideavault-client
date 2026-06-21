@@ -14,7 +14,7 @@ import Link from 'next/link';
 
 const Banner = () => {
     return (
-        <section className="relative overflow-hidden pt-12 pb-24 md:pt-24 md:pb-32  from-blue-50 via-slate-50 to-slate-50">
+        <section className="relative overflow-hidden pt-12 pb-24 md:pt-24 md:pb-32 bg-gradient-to-b from-blue-50 via-slate-50 to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
             <Swiper
                 navigation
                 pagination={true} modules={[Pagination, Navigation]} className="mySwiper">
@@ -22,11 +22,11 @@ const Banner = () => {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-8">
-                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 rounded-full border border-blue-600/20 text-blue-600 font-bold text-sm animate-bounce-slow">
-                                    <Star className="w-4 h-4 fill-blue-600" />
+                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 dark:bg-blue-600/20 rounded-full border border-blue-600/20 dark:border-blue-600/30 text-blue-600 dark:text-blue-400 font-bold text-sm animate-bounce-slow">
+                                    <Star className="w-4 h-4 fill-blue-600 dark:fill-blue-400" />
                                     <span>Trusted by 10,000+ Innovators Worldwide</span>
                                 </div>
-                                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                                     Discover and Share{' '}
                                     <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-blue-800">
                                         Groundbreaking
@@ -85,6 +85,7 @@ const Banner = () => {
                                         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
                                         alt="Learning"
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="rounded-[2rem] object-cover transform transition duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-2xl">
@@ -178,6 +179,7 @@ const Banner = () => {
                                         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
                                         alt="Learning"
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="rounded-[2rem] object-cover transform transition duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-2xl">
@@ -271,6 +273,7 @@ const Banner = () => {
                                         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
                                         alt="Learning"
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="rounded-[2rem] object-cover transform transition duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-2xl">

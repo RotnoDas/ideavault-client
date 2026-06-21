@@ -88,6 +88,7 @@ const MyProfilePage = () => {
                                     src={image || session.user.image}
                                     alt="Profile avatar"
                                     fill
+                                    sizes="96px"
                                     className="object-cover"
                                 />
                             </div>

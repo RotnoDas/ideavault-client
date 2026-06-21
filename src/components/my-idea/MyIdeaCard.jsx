@@ -40,7 +40,7 @@ const MyIdeaCard = ({ idea, token }) => {
             <div className="flex flex-col bg-white rounded-3xl border border-slate-200 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl relative">
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 flex items-center justify-center">
                     {idea.ImageURL ? (
-                        <Image src={idea.ImageURL} alt={idea.IdeaTitle || "Idea image"} className="object-cover" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"></Image>
+                        <Image src={idea.ImageURL} alt={idea.IdeaTitle || "Idea image"} className="object-cover" fill loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"></Image>
                     ) : (
                         <div className="text-slate-400 text-sm">No Image</div>
                     )}

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { ThemeSwitcher } from '@/components/theme-switcher/ThemeSwitcher';
 
 const NavBar = () => {
     const router = useRouter();
@@ -48,6 +49,7 @@ const NavBar = () => {
                         <Link href="/my-interaction" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">My Interaction</Link>
                     </div>
                     <div className="hidden md:flex items-center gap-4">
+                        <ThemeSwitcher />
                         {
                             isPending ? (
                                 <div className="flex gap-4 items-center">
@@ -102,7 +104,8 @@ const NavBar = () => {
                             )
                         }
                     </div>
-                    <div className="md:hidden flex items-center">
+                    <div className="md:hidden flex items-center gap-2">
+                        <ThemeSwitcher />
                         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-lg hover:bg-muted transition-colors">
                             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </button>

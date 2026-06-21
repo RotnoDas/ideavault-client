@@ -40,6 +40,8 @@ const IdeaDetailsPage = async({params}) => {
                             src={data.ImageURL}
                             alt={data.IdeaTitle}
                             fill
+                            priority
+                            sizes="(max-width: 1024px) 100vw, 66vw"
                             className="object-cover transform transition duration-700 group-hover:scale-105"
                         />
                         <div className="absolute top-6 left-6">

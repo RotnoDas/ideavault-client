@@ -4,6 +4,7 @@ import { Button } from '@heroui/react';
 import { useRouter, useParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
+import Loading from '@/app/loading';
 
 const CATEGORIES = [
     'Tech',
@@ -106,7 +107,7 @@ const EditIdeaPage = () => {
     const inputClasses = "border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 focus:outline-none transition-all duration-300 bg-white w-full rounded-2xl px-4 py-3";
 
     if (isLoading) {
-        return <div className="min-h-screen bg-slate-50 flex items-center justify-center font-bold text-slate-500">Loading Idea...</div>;
+        return <Loading />;
     }
 
     if (!idea) {
